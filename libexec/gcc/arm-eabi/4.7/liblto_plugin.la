@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/tmp/toolchain-build-eabi-4.7/prefix/libexec/gcc/arm-eabi/4.7'
+libdir='/tmp/toolchain-build-eabi/prefix/libexec/gcc/arm-eabi/4.7'
