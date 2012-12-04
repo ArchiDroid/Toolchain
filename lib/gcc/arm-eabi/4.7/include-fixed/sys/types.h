@@ -2,7 +2,7 @@
 
     It has been auto-edited by fixincludes from:
 
-	"/tmp/toolchain-build-eabi-4.7/prefix/sysroot/usr/include/sys/types.h"
+	"/tmp/toolchain-build-eabi/prefix/sysroot/usr/include/sys/types.h"
 
     This had to be done to correct non-standard usages in the
     original, manufacturer supplied header file.  */

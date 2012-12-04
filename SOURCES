@@ -1,10 +1,16 @@
-/home/bccheng/ShellScripts/prepare-platform-gcc.sh: line 105: /tmp/android-eabi-4.7/toolchains/arm-eabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc: No such file or directory
+Using built-in specs.
+COLLECT_GCC=/tmp/android-eabi-4.7-2012-12-03/toolchains/arm-eabi-4.7/prebuilt/linux-x86_64//bin/arm-eabi-gcc
+COLLECT_LTO_WRAPPER=/tmp/android-eabi-4.7-2012-12-03/toolchains/arm-eabi-4.7/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-eabi/4.7/lto-wrapper
+Target: arm-eabi
+Configured with: /tmp/AOSP-toolchain/build/../gcc/gcc-4.7/configure --prefix=/tmp/toolchain-build-eabi/prefix --target=arm-eabi --host=x86_64-linux-gnu --build=x86_64-linux-gnu --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --with-gmp=/tmp/toolchain-build-eabi/temp-install --with-mpfr=/tmp/toolchain-build-eabi/temp-install --with-mpc=/tmp/toolchain-build-eabi/temp-install --without-ppl --without-cloog --disable-libssp --enable-threads --disable-nls --disable-libmudflap --disable-libgomp --disable-libstdc__-v3 --disable-sjlj-exceptions --disable-shared --disable-tls --disable-libitm --with-float=soft --with-fpu=vfp --with-arch=armv5te --enable-target-optspace --with-abi=aapcs --enable-initfini-array --disable-nls --prefix=/tmp/toolchain-build-eabi/prefix --with-sysroot=/tmp/toolchain-build-eabi/prefix/sysroot --with-binutils-version=2.22 --with-mpfr-version=2.4.1 --with-mpc-version=0.8.1 --with-gmp-version=5.0.5 --with-gcc-version=4.7 --with-gdb-version=7.3.x --with-gxx-include-dir=/tmp/toolchain-build-eabi/prefix/include/c++/4.7 --with-bugurl=http://source.android.com/source/report-bugs.html --disable-bootstrap --disable-libquadmath --disable-plugin --with-arch=armv5te --disable-gold --program-transform-name='s&^&arm-eabi-&'
+Thread model: single
+gcc version 4.7 (GCC) 
 
 gcc:
-commit 3c56f697e112c79fb5457538fdc373e348beca24
-Author: Andrew Hsieh <andrewhsieh@google.com>
+commit 978fb74a5c086cc5572dc2e3f37d207acad969d7
+Author: Ben Cheng <bccheng@google.com>
 
-    Initial checkin of unmodified gcc-5666.3.tar.gz
+    Enable armv7/thumb2 multilib for arm-eabi.
 
 binutils:
 commit dc51c7a5e0e2620dc85e6c9c46027dce94a85e1f
@@ -13,10 +19,10 @@ Author: Pavel Chupin <pavel.v.chupin@intel.com>
     Fix gold issue on fsck_msdos build when objects built by ICC
 
 gdb:
-commit ab1098c4c1c197b6508d86989b4e60d48e0fd512
-Author: Ryan V. Bissell <rbissell@nvidia.com>
+commit 5b9104eb197d16b82cd5a50bf7fe8f721607faeb
+Author: Pavel Chupin <pavel.v.chupin@intel.com>
 
-    bionic support for library-list-svr4.dtd
+    Fix build with --enable-plugins
 
 gmp:
 commit e6b9669dafc6a5f83c80b4b4176359b78bccdc90
