@@ -1,50 +1,9 @@
 Using built-in specs.
-COLLECT_GCC=/tmp/android-ndk-4.7/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
-COLLECT_LTO_WRAPPER=/tmp/android-ndk-4.7/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.7/lto-wrapper
+COLLECT_GCC=./bin/arm-linux-androideabi-gcc
+COLLECT_LTO_WRAPPER=/tmp/android-4.7-2013-01-08/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.7/lto-wrapper
 Target: arm-linux-androideabi
-Configured with: /tmp/AOSP-toolchain/build/../gcc/gcc-4.7/configure --prefix=/tmp/toolchain-build-4.7/prefix --target=arm-linux-androideabi --host=x86_64-linux-gnu --build=x86_64-linux-gnu --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --with-gmp=/tmp/toolchain-build-4.7/temp-install --with-mpfr=/tmp/toolchain-build-4.7/temp-install --with-mpc=/tmp/toolchain-build-4.7/temp-install --without-ppl --without-cloog --disable-libssp --enable-threads --disable-nls --disable-libmudflap --disable-libgomp --disable-libstdc__-v3 --disable-sjlj-exceptions --disable-shared --disable-tls --disable-libitm --with-float=soft --with-fpu=vfp --with-arch=armv5te --enable-target-optspace --enable-initfini-array --disable-nls --prefix=/tmp/toolchain-build-4.7/prefix --with-sysroot=/tmp/toolchain-build-4.7/prefix/sysroot --with-binutils-version=2.22 --with-mpfr-version=2.4.1 --with-mpc-version=0.8.1 --with-gmp-version=5.0.5 --with-gcc-version=4.7 --with-gdb-version=7.3.x --with-gxx-include-dir=/tmp/toolchain-build-4.7/prefix/include/c++/4.7 --disable-bootstrap --disable-libquadmath --disable-plugin --enable-gold --with-arch=armv5te --program-transform-name='s&^&arm-linux-androideabi-&' --enable-gold=default
+Configured with: /tmp/AOSP-toolchain/build/../gcc/gcc-4.7/configure --prefix=/tmp/toolchain-build-linux/prefix --target=arm-linux-androideabi --host=x86_64-linux-gnu --build=x86_64-linux-gnu --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --with-gmp=/tmp/toolchain-build-linux/temp-install --with-mpfr=/tmp/toolchain-build-linux/temp-install --with-mpc=/tmp/toolchain-build-linux/temp-install --with-cloog=/tmp/toolchain-build-linux/temp-install --with-ppl=/tmp/toolchain-build-linux/temp-install --disable-ppl-version-check --disable-cloog-version-check --enable-cloog-backend=isl --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --disable-libssp --enable-threads --disable-nls --disable-libmudflap --disable-libgomp --disable-libstdc__-v3 --disable-sjlj-exceptions --disable-shared --disable-tls --disable-libitm --with-float=soft --with-fpu=vfp --with-arch=armv5te --enable-target-optspace --enable-initfini-array --disable-nls --prefix=/tmp/toolchain-build-linux/prefix --with-sysroot=/tmp/toolchain-build-linux/prefix/sysroot --with-binutils-version=2.22 --with-mpfr-version=3.1.1 --with-mpc-version=1.0.1 --with-gmp-version=5.0.5 --with-gcc-version=4.7 --with-gdb-version=7.3.x --with-gxx-include-dir=/tmp/toolchain-build-linux/prefix/include/c++/4.7 --with-bugurl=http://source.android.com/source/report-bugs.html --disable-bootstrap --disable-libquadmath --enable-plugins --enable-libgomp --enable-gold --enable-graphite=yes --with-cloog-version=0.17.0 --with-ppl-version=1.0 --with-arch=armv5te --program-transform-name='s&^&arm-linux-androideabi-&' --enable-gold=default
 Thread model: posix
 gcc version 4.7 (GCC) 
 
 gcc:
-commit 3c56f697e112c79fb5457538fdc373e348beca24
-Author: Andrew Hsieh <andrewhsieh@google.com>
-
-    Initial checkin of unmodified gcc-5666.3.tar.gz
-
-binutils:
-commit dc51c7a5e0e2620dc85e6c9c46027dce94a85e1f
-Author: Pavel Chupin <pavel.v.chupin@intel.com>
-
-    Fix gold issue on fsck_msdos build when objects built by ICC
-
-gdb:
-commit ab1098c4c1c197b6508d86989b4e60d48e0fd512
-Author: Ryan V. Bissell <rbissell@nvidia.com>
-
-    bionic support for library-list-svr4.dtd
-
-gmp:
-commit e6b9669dafc6a5f83c80b4b4176359b78bccdc90
-Author: David 'Digit' Turner <digit@google.com>
-
-    Add gmp-5.0.5.tar.bz2
-
-mpfr:
-commit bde731396c38c8d5b0bca800aace6a690d0d2978
-Author: Jing Yu <jingyu@google.com>
-
-    add mpfr-2.4.2.tar.bz2
-
-build:
-commit 106603b925b7f20177c5b7613535d9d43ed35b7d
-Author: Andrew Hsieh <andrewhsieh@google.com>
-
-    Options brought in from core combo for IA
-
-expat:
-commit 40172a0ae9d40a068f1e1a48ffcf6a1ccf765ed5
-Author: Jing Yu <jingyu@google.com>
-
-    expat package for building gdb-7.3
-
