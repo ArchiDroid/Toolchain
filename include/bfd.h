@@ -80,7 +80,7 @@ extern "C" {
 #define LITSTRCPY(DEST,STR2) memcpy ((DEST), (STR2), sizeof (STR2))
 
 
-#define BFD_SUPPORTS_PLUGINS 0
+#define BFD_SUPPORTS_PLUGINS 1
 
 /* The word size used by BFD on the host.  This may be 64 with a 32
    bit target if the host is 64 bit, or if other 64 bit targets have
