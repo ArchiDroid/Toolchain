@@ -1,0 +1,21 @@
+toolchain/build.git                    75542e77b565c2af968e48c1b12b32f343d913ae Fix binutils-2.24 detection
+toolchain/gmp.git                      e6b9669dafc6a5f83c80b4b4176359b78bccdc90 Add gmp-5.0.5.tar.bz2
+toolchain/mpfr.git                     bfcf1bfa38469208aaad8873cd4c68781061d90f add mpfr-3.1.1.tar.bz2
+toolchain/mpc.git                      835d16e92eed875638a8b5d552034c3b1aae045b add mpc-1.0.1.tar.gz
+toolchain/cloog.git                    98972d5434ffcb4d11d2c81a46600e9a1cda9110 MinGW-w64 build fix (lacks ffs declaration)
+toolchain/isl.git                      b05d4572958c5d497da793f3317084bab90c3033 add isl-0.11.1.tar.bz2 needed by GCC 4.8 with graphite
+toolchain/ppl.git                      8ba1875b4c5341d902321761022a6d2a0b5b19a4 add ppl-1.0.tar.bz2
+toolchain/expat.git                    40172a0ae9d40a068f1e1a48ffcf6a1ccf765ed5 expat package for building gdb-7.3
+toolchain/binutils.git                 2a6558a8ecfb81d75215b4ec7dc61113e12cfd5f Merge "[2.24] Fix assert failure with --emit-relocs and .eh_frame sections by backporting the following patch from mainline:"
+toolchain/gcc.git                      8f2898c09773292b6ba523cee7e528a320ff1e02 Merge "[4.8, 4.9] Fix aarch64/arm_neon.h vqdmulh_n_s16"
+toolchain/gdb.git                      df2206c67d812619976f49319911ed12c8220b11 Fix broken x86_64 gdbserver build
+toolchain/python.git                   0d4194853e08d3244931523470331c00dfb94863 Fix python build inc_dirs[] and lib_dirs[] for linux/darwin
+toolchain/perl.git                     1121daca35c6c692602621eab28d4de19f0b347d Add -Dcc_as_ld to configure
+toolchain/mclinker.git                 5fca8b9c9c671d6c01f428c00ca131e65042a9fd Merge upstream mclinker 2.7
+toolchain/yasm.git                     87c09baff80ca5bbe938392d8f320e621707f317 test commit
+toolchain/clang.git (release_34)       32d5296021ee140d3afa467ef54de7f9daf9c9c1 Backport clang svn@r207520
+toolchain/llvm.git (release_34)        4e3e3137a7d3c271f5190ac9ef8af7848e5f67e2 Fix missing change for expandVAArg.
+toolchain/compiler-rt.git (release_34) b065fccd8ab47b4de4610093fb98514fc5df2362 Alias __aeabi_fcmpun to __unordsf2.
+toolchain/clang.git (release_33)       260f965f1273cd0aa8a1270885519df8e6317062 [ndk] Fix diagnostics for C-style cast to function type.
+toolchain/llvm.git (release_33)        8609a3469a8126eb6fb99ff65906bcc20c272d95 [ndk] Fix createBranchWeights() assertions.
+toolchain/compiler-rt.git (release_33) c880feaaa8829681a025d29a33704c18e21e87e1 Misc fixes for compiler_rt
