@@ -1,0 +1,5 @@
+out/target/product/generic/obj/lib/crtend_so.o: \
+ bionic/libc/arch-common/bionic/crtend_so.S \
+ bionic/libc/arch-common/bionic/asm_multiarch.h
+ bionic/libc/arch-common/bionic/crtend_so.S :
+ bionic/libc/arch-common/bionic/asm_multiarch.h :

@@ -1,0 +1,7 @@
+out/target/product/generic/obj/lib/crtbrand.s: \
+ bionic/libc/bionic/crtbrand.c bionic/libc/include/stdint.h \
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.9.2/include/stddef.h \
+ bionic/libc/include/machine/wchar_limits.h
+ bionic/libc/bionic/crtbrand.c bionic/libc/include/stdint.h :
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.9.2/include/stddef.h :
+ bionic/libc/include/machine/wchar_limits.h :
