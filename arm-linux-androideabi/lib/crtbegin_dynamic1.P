@@ -1,0 +1,17 @@
+out/target/product/generic/obj/lib/crtbegin_dynamic1.o: \
+ bionic/libc/arch-common/bionic/crtbegin.c \
+ bionic/libc/arch-common/bionic/../../bionic/libc_init_common.h \
+ bionic/libc/include/sys/cdefs.h bionic/libc/include/sys/cdefs_elf.h \
+ bionic/libc/include/android/api-level.h \
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.9.2/include/stddef.h \
+ bionic/libc/include/stdint.h bionic/libc/include/machine/wchar_limits.h \
+ bionic/libc/arch-common/bionic/__dso_handle.h \
+ bionic/libc/arch-common/bionic/atexit.h
+ bionic/libc/arch-common/bionic/crtbegin.c :
+ bionic/libc/arch-common/bionic/../../bionic/libc_init_common.h :
+ bionic/libc/include/sys/cdefs.h bionic/libc/include/sys/cdefs_elf.h :
+ bionic/libc/include/android/api-level.h :
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.9.2/include/stddef.h :
+ bionic/libc/include/stdint.h bionic/libc/include/machine/wchar_limits.h :
+ bionic/libc/arch-common/bionic/__dso_handle.h :
+ bionic/libc/arch-common/bionic/atexit.h :
