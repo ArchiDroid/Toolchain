@@ -5086,47 +5086,47 @@
                             (!type struct 255 
                              (!type already_seen 254)
                              gc_pointed_to "constant_descriptor_rtx"
-                             (!srcfileloc  "varasm.c" 3488)
+                             (!srcfileloc  "varasm.c" 3493)
                              (!fields 10 
                               (!pair  "next"
                                (!type already_seen 254)
-                               (!srcfileloc  "varasm.c" 3478)
+                               (!srcfileloc  "varasm.c" 3483)
                                nil )
                               (!pair  "mem"
                                (!type already_seen 136)
-                               (!srcfileloc  "varasm.c" 3479)
+                               (!srcfileloc  "varasm.c" 3484)
                                nil )
                               (!pair  "sym"
                                (!type already_seen 136)
-                               (!srcfileloc  "varasm.c" 3480)
+                               (!srcfileloc  "varasm.c" 3485)
                                nil )
                               (!pair  "constant"
                                (!type already_seen 136)
-                               (!srcfileloc  "varasm.c" 3481)
+                               (!srcfileloc  "varasm.c" 3486)
                                nil )
                               (!pair  "offset"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3482)
+                               (!srcfileloc  "varasm.c" 3487)
                                nil )
                               (!pair  "hash"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3483)
+                               (!srcfileloc  "varasm.c" 3488)
                                nil )
                               (!pair  "mode"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3484)
+                               (!srcfileloc  "varasm.c" 3489)
                                nil )
                               (!pair  "align"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3485)
+                               (!srcfileloc  "varasm.c" 3490)
                                nil )
                               (!pair  "labelno"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3486)
+                               (!srcfileloc  "varasm.c" 3491)
                                nil )
                               (!pair  "mark"
                                (!type already_seen 9)
-                               (!srcfileloc  "varasm.c" 3487)
+                               (!srcfileloc  "varasm.c" 3492)
                                nil )
                              )
                              (!options 
@@ -17712,7 +17712,7 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1013 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:29837"nil 
+ (!type struct 1013 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:29843"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -17720,7 +17720,7 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1015 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:23286"nil 
+ (!type struct 1015 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:23292"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -18812,11 +18812,11 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1134 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/varasm.c:4818"nil 
+ (!type struct 1134 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/varasm.c:4823"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1135 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/varasm.c:4574"nil 
+ (!type struct 1135 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/varasm.c:4579"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -20660,15 +20660,15 @@
         (!type struct 1370 
          (!type already_seen 1369)
          gc_pointed_to "rtx_constant_pool"
-         (!srcfileloc  "varasm.c" 3475)
+         (!srcfileloc  "varasm.c" 3480)
          (!fields 4 
           (!pair  "first"
            (!type already_seen 254)
-           (!srcfileloc  "varasm.c" 3463)
+           (!srcfileloc  "varasm.c" 3468)
            nil )
           (!pair  "last"
            (!type already_seen 254)
-           (!srcfileloc  "varasm.c" 3464)
+           (!srcfileloc  "varasm.c" 3469)
            nil )
           (!pair  "const_rtx_htab"
            (!type pointer 1371 nil  gc_used
@@ -20680,7 +20680,7 @@
              (!type already_seen 254)
              nil nil nil nil nil nil nil nil nil nil )
            )
-           (!srcfileloc  "varasm.c" 3470)
+           (!srcfileloc  "varasm.c" 3475)
            (!options 
             (!option param_is type 
              (!type already_seen 255)
@@ -20689,7 +20689,7 @@
           )
           (!pair  "offset"
            (!type already_seen 9)
-           (!srcfileloc  "varasm.c" 3474)
+           (!srcfileloc  "varasm.c" 3479)
            nil )
          )
          nil 511 nil nil )
@@ -23325,23 +23325,23 @@
   nil )
  (!pair  "arm_mangle_map_entry"
   (!type already_seen 1013)
-  (!srcfileloc  "config/arm/arm.c" 29841)
+  (!srcfileloc  "config/arm/arm.c" 29847)
   nil )
  (!pair  "builtin_arg"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 25182)
+  (!srcfileloc  "config/arm/arm.c" 25188)
   nil )
  (!pair  "neon_builtin_datum"
   (!type already_seen 1015)
-  (!srcfileloc  "config/arm/arm.c" 23292)
+  (!srcfileloc  "config/arm/arm.c" 23298)
   nil )
  (!pair  "neon_itype"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 23284)
+  (!srcfileloc  "config/arm/arm.c" 23290)
   nil )
  (!pair  "neon_builtin_type_mode"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 23215)
+  (!srcfileloc  "config/arm/arm.c" 23221)
   nil )
  (!pair  "arm_pragma_enum"
   (!type already_seen 9)
@@ -23465,15 +23465,15 @@
   nil )
  (!pair  "tm_alias_pair"
   (!type already_seen 1133)
-  (!srcfileloc  "varasm.c" 5756)
+  (!srcfileloc  "varasm.c" 5761)
   nil )
  (!pair  "oc_local_state"
   (!type already_seen 1134)
-  (!srcfileloc  "varasm.c" 4839)
+  (!srcfileloc  "varasm.c" 4844)
   nil )
  (!pair  "oc_outer_state"
   (!type already_seen 1135)
-  (!srcfileloc  "varasm.c" 4577)
+  (!srcfileloc  "varasm.c" 4582)
   nil )
  (!pair  "block_info"
   (!type already_seen 1151)
@@ -26554,7 +26554,7 @@
   (!type array 1585 nil  gc_used "ARM_BUILTIN_MAX" 
    (!type already_seen 5)
   )
-  (!srcfileloc  "config/arm/arm.c" 23676)
+  (!srcfileloc  "config/arm/arm.c" 23682)
   nil )
  (!pair  "tls_get_addr_libfunc"
   (!type already_seen 136)
@@ -26674,15 +26674,15 @@
   nil )
  (!pair  "elf_fini_array_section"
   (!type already_seen 245)
-  (!srcfileloc  "varasm.c" 7538)
+  (!srcfileloc  "varasm.c" 7543)
   nil )
  (!pair  "elf_init_array_section"
   (!type already_seen 245)
-  (!srcfileloc  "varasm.c" 7537)
+  (!srcfileloc  "varasm.c" 7542)
   nil )
  (!pair  "tm_clone_hash"
   (!type already_seen 1498)
-  (!srcfileloc  "varasm.c" 5714)
+  (!srcfileloc  "varasm.c" 5719)
   (!options 
    (!option param_is type 
     (!type already_seen 1406)
@@ -26692,11 +26692,11 @@
  )
  (!pair  "weakref_targets"
   (!type already_seen 5)
-  (!srcfileloc  "varasm.c" 5408)
+  (!srcfileloc  "varasm.c" 5413)
   nil )
  (!pair  "const_desc_htab"
   (!type already_seen 1500)
-  (!srcfileloc  "varasm.c" 2787)
+  (!srcfileloc  "varasm.c" 2792)
   (!options 
    (!option param_is type 
     (!type already_seen 1330)
@@ -26705,15 +26705,15 @@
  )
  (!pair  "initial_trampoline"
   (!type already_seen 136)
-  (!srcfileloc  "varasm.c" 2498)
+  (!srcfileloc  "varasm.c" 2503)
   nil )
  (!pair  "weak_decls"
   (!type already_seen 5)
-  (!srcfileloc  "varasm.c" 2276)
+  (!srcfileloc  "varasm.c" 2281)
   nil )
  (!pair  "pending_assemble_externals"
   (!type already_seen 5)
-  (!srcfileloc  "varasm.c" 2206)
+  (!srcfileloc  "varasm.c" 2211)
   nil )
  (!pair  "shared_constant_pool"
   (!type already_seen 1369)
