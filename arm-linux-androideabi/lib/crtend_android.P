@@ -1,3 +1,0 @@
-out/target/product/pandaboard/obj/lib/crtend_android.o: \
- bionic/libc/arch-arm/bionic/crtend.S
- bionic/libc/arch-arm/bionic/crtend.S :
