@@ -1,7 +1,0 @@
-out/target/product/pandaboard/obj/lib/crtbegin_so.o: \
- bionic/libc/arch-arm/bionic/crtbegin_so.c \
- bionic/libc/private/__dso_handle_so.h \
- bionic/libc/arch-arm/bionic/atexit.h
- bionic/libc/arch-arm/bionic/crtbegin_so.c :
- bionic/libc/private/__dso_handle_so.h :
- bionic/libc/arch-arm/bionic/atexit.h :
