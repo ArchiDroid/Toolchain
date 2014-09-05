@@ -1,0 +1,17 @@
+out/target/product/pandaboard/obj/lib/crtbegin_dynamic1.o: \
+ bionic/libc/arch-arm/bionic/crtbegin.c \
+ bionic/libc/arch-arm/bionic/../../bionic/libc_init_common.h \
+ bionic/libc/include/sys/cdefs.h bionic/libc/include/sys/cdefs_elf.h \
+ bionic/libc/include/android/api-level.h \
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h \
+ bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h \
+ bionic/libc/arch-arm/include/machine/_types.h \
+ bionic/libc/private/__dso_handle.h bionic/libc/arch-arm/bionic/atexit.h
+ bionic/libc/arch-arm/bionic/crtbegin.c :
+ bionic/libc/arch-arm/bionic/../../bionic/libc_init_common.h :
+ bionic/libc/include/sys/cdefs.h bionic/libc/include/sys/cdefs_elf.h :
+ bionic/libc/include/android/api-level.h :
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h :
+ bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h :
+ bionic/libc/arch-arm/include/machine/_types.h :
+ bionic/libc/private/__dso_handle.h bionic/libc/arch-arm/bionic/atexit.h :
