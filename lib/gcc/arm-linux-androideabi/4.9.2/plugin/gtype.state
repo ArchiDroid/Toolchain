@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "4.9.2 20140811 (prerelease)")
+(!version  "4.9.2 20140904 (prerelease)")
 (!srcdir  "/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc")
 (!languages 9 ada c cp fortran go java lto objc objcp)
 (!fileslist 194
@@ -1472,23 +1472,23 @@
                                                    nil )
                                                   (!pair  "deferred_access_check"
                                                    (!type struct 73 nil  gc_used "deferred_access_check"
-                                                    (!srcfileloc  "cp/cp-tree.h" 5697)
+                                                    (!srcfileloc  "cp/cp-tree.h" 5698)
                                                     (!fields 4 
                                                      (!pair  "binfo"
                                                       (!type already_seen 5)
-                                                      (!srcfileloc  "cp/cp-tree.h" 5690)
+                                                      (!srcfileloc  "cp/cp-tree.h" 5691)
                                                       nil )
                                                      (!pair  "decl"
                                                       (!type already_seen 5)
-                                                      (!srcfileloc  "cp/cp-tree.h" 5692)
+                                                      (!srcfileloc  "cp/cp-tree.h" 5693)
                                                       nil )
                                                      (!pair  "diag_decl"
                                                       (!type already_seen 5)
-                                                      (!srcfileloc  "cp/cp-tree.h" 5694)
+                                                      (!srcfileloc  "cp/cp-tree.h" 5695)
                                                       nil )
                                                      (!pair  "loc"
                                                       (!type already_seen 9)
-                                                      (!srcfileloc  "cp/cp-tree.h" 5696)
+                                                      (!srcfileloc  "cp/cp-tree.h" 5697)
                                                       nil )
                                                     )
                                                     nil 260 nil nil )
@@ -6381,67 +6381,67 @@
                                      (!type struct 311 
                                       (!type already_seen 310)
                                       gc_pointed_to "gimple_statement_base"
-                                      (!srcfileloc  "gimple.h" 202)
+                                      (!srcfileloc  "gimple.h" 203)
                                       (!fields 15 
                                        (!pair  "code"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 143)
+                                        (!srcfileloc  "gimple.h" 144)
                                         nil )
                                        (!pair  "no_warning"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 146)
+                                        (!srcfileloc  "gimple.h" 147)
                                         nil )
                                        (!pair  "visited"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 150)
+                                        (!srcfileloc  "gimple.h" 151)
                                         nil )
                                        (!pair  "nontemporal_move"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 153)
+                                        (!srcfileloc  "gimple.h" 154)
                                         nil )
                                        (!pair  "plf"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 160)
+                                        (!srcfileloc  "gimple.h" 161)
                                         nil )
                                        (!pair  "modified"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 164)
+                                        (!srcfileloc  "gimple.h" 165)
                                         nil )
                                        (!pair  "has_volatile_ops"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 167)
+                                        (!srcfileloc  "gimple.h" 168)
                                         nil )
                                        (!pair  "pad"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 170)
+                                        (!srcfileloc  "gimple.h" 171)
                                         nil )
                                        (!pair  "subcode"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 176)
+                                        (!srcfileloc  "gimple.h" 177)
                                         nil )
                                        (!pair  "uid"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 181)
+                                        (!srcfileloc  "gimple.h" 182)
                                         nil )
                                        (!pair  "location"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 185)
+                                        (!srcfileloc  "gimple.h" 186)
                                         nil )
                                        (!pair  "num_ops"
                                         (!type already_seen 9)
-                                        (!srcfileloc  "gimple.h" 188)
+                                        (!srcfileloc  "gimple.h" 189)
                                         nil )
                                        (!pair  "bb"
                                         (!type already_seen 297)
-                                        (!srcfileloc  "gimple.h" 192)
+                                        (!srcfileloc  "gimple.h" 193)
                                         nil )
                                        (!pair  "next"
                                         (!type already_seen 310)
-                                        (!srcfileloc  "gimple.h" 200)
+                                        (!srcfileloc  "gimple.h" 201)
                                         nil )
                                        (!pair  "prev"
                                         (!type already_seen 310)
-                                        (!srcfileloc  "gimple.h" 201)
+                                        (!srcfileloc  "gimple.h" 202)
                                         (!options 
                                          (!option skip string  "")
                                         )
@@ -14547,39 +14547,39 @@
    (!type already_seen 709)
   )
   gc_pointed_to "constexpr_call"
-  (!srcfileloc  "cp/semantics.c" 8083)
+  (!srcfileloc  "cp/semantics.c" 8084)
   (!fields 4 
    (!pair  "fundef"
     (!type pointer 711 nil  gc_used
      (!type struct 712 
       (!type already_seen 711)
       gc_pointed_to "constexpr_fundef"
-      (!srcfileloc  "cp/semantics.c" 7400)
+      (!srcfileloc  "cp/semantics.c" 7401)
       (!fields 2 
        (!pair  "decl"
         (!type already_seen 5)
-        (!srcfileloc  "cp/semantics.c" 7398)
+        (!srcfileloc  "cp/semantics.c" 7399)
         nil )
        (!pair  "body"
         (!type already_seen 5)
-        (!srcfileloc  "cp/semantics.c" 7399)
+        (!srcfileloc  "cp/semantics.c" 7400)
         nil )
       )
       nil 260 nil nil )
     )
-    (!srcfileloc  "cp/semantics.c" 8067)
+    (!srcfileloc  "cp/semantics.c" 8068)
     nil )
    (!pair  "bindings"
     (!type already_seen 5)
-    (!srcfileloc  "cp/semantics.c" 8074)
+    (!srcfileloc  "cp/semantics.c" 8075)
     nil )
    (!pair  "result"
     (!type already_seen 5)
-    (!srcfileloc  "cp/semantics.c" 8079)
+    (!srcfileloc  "cp/semantics.c" 8080)
     nil )
    (!pair  "hash"
     (!type already_seen 9)
-    (!srcfileloc  "cp/semantics.c" 8082)
+    (!srcfileloc  "cp/semantics.c" 8083)
     nil )
   )
   nil 260 nil nil )
@@ -17717,7 +17717,7 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1013 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:29843"nil 
+ (!type struct 1013 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:29831"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -17725,7 +17725,7 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1015 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:23292"nil 
+ (!type struct 1015 nil  gc_unused "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/config/arm/arm.c:23280"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -18101,15 +18101,15 @@
   nil 0 nil nil )
  
  (!type struct 1088 nil  gc_pointed_to "gimple_statement_transaction"
-  (!srcfileloc  "gimple.h" 758)
+  (!srcfileloc  "gimple.h" 759)
   (!fields 2 
    (!pair  "body"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 754)
+    (!srcfileloc  "gimple.h" 755)
     nil )
    (!pair  "label"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 757)
+    (!srcfileloc  "gimple.h" 758)
     nil )
   )
   (!options 
@@ -18117,18 +18117,18 @@
   )
   511 nil 
   (!type struct 1089 nil  gc_pointed_to "gimple_statement_with_memory_ops_base"
-   (!srcfileloc  "gimple.h" 249)
+   (!srcfileloc  "gimple.h" 250)
    (!fields 2 
     (!pair  "vdef"
      (!type already_seen 5)
-     (!srcfileloc  "gimple.h" 247)
+     (!srcfileloc  "gimple.h" 248)
      (!options 
       (!option skip string  "")
      )
     )
     (!pair  "vuse"
      (!type already_seen 5)
-     (!srcfileloc  "gimple.h" 248)
+     (!srcfileloc  "gimple.h" 249)
      (!options 
       (!option skip string  "")
      )
@@ -18139,11 +18139,11 @@
    )
    511 nil 
    (!type struct 1090 nil  gc_pointed_to "gimple_statement_with_ops_base"
-    (!srcfileloc  "gimple.h" 219)
+    (!srcfileloc  "gimple.h" 220)
     (!fields 1 
      (!pair  "use_ops"
       (!type already_seen 391)
-      (!srcfileloc  "gimple.h" 218)
+      (!srcfileloc  "gimple.h" 219)
       (!options 
        (!option skip string  "")
       )
@@ -18156,18 +18156,18 @@
  )
  
  (!type struct 1091 nil  gc_pointed_to "gimple_statement_omp_return"
-  (!srcfileloc  "gimple.h" 718)
+  (!srcfileloc  "gimple.h" 719)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_ATOMIC_STORE_LAYOUT")
   )
   511 nil 
   (!type struct 1092 nil  gc_pointed_to "gimple_statement_omp_atomic_store_layout"
-   (!srcfileloc  "gimple.h" 702)
+   (!srcfileloc  "gimple.h" 703)
    (!fields 1 
     (!pair  "val"
      (!type already_seen 5)
-     (!srcfileloc  "gimple.h" 701)
+     (!srcfileloc  "gimple.h" 702)
      nil )
    )
    (!options 
@@ -18179,7 +18179,7 @@
  )
  
  (!type struct 1093 nil  gc_pointed_to "gimple_statement_omp_atomic_store"
-  (!srcfileloc  "gimple.h" 710)
+  (!srcfileloc  "gimple.h" 711)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_ATOMIC_STORE_LAYOUT")
@@ -18191,15 +18191,15 @@
  (!type already_seen 1092)
  
  (!type struct 1094 nil  gc_pointed_to "gimple_statement_omp_atomic_load"
-  (!srcfileloc  "gimple.h" 690)
+  (!srcfileloc  "gimple.h" 691)
   (!fields 2 
    (!pair  "rhs"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 689)
+    (!srcfileloc  "gimple.h" 690)
     nil )
    (!pair  "lhs"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 689)
+    (!srcfileloc  "gimple.h" 690)
     nil )
   )
   (!options 
@@ -18210,18 +18210,18 @@
  )
  
  (!type struct 1095 nil  gc_pointed_to "gimple_statement_omp_teams"
-  (!srcfileloc  "gimple.h" 676)
+  (!srcfileloc  "gimple.h" 677)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_SINGLE_LAYOUT")
   )
   511 nil 
   (!type struct 1096 nil  gc_pointed_to "gimple_statement_omp_single_layout"
-   (!srcfileloc  "gimple.h" 662)
+   (!srcfileloc  "gimple.h" 663)
    (!fields 1 
     (!pair  "clauses"
      (!type already_seen 5)
-     (!srcfileloc  "gimple.h" 661)
+     (!srcfileloc  "gimple.h" 662)
      nil )
    )
    (!options 
@@ -18229,11 +18229,11 @@
    )
    511 nil 
    (!type struct 1097 nil  gc_pointed_to "gimple_statement_omp"
-    (!srcfileloc  "gimple.h" 302)
+    (!srcfileloc  "gimple.h" 303)
     (!fields 1 
      (!pair  "body"
       (!type already_seen 310)
-      (!srcfileloc  "gimple.h" 301)
+      (!srcfileloc  "gimple.h" 302)
       nil )
     )
     (!options 
@@ -18246,7 +18246,7 @@
  )
  
  (!type struct 1098 nil  gc_pointed_to "gimple_statement_omp_single"
-  (!srcfileloc  "gimple.h" 669)
+  (!srcfileloc  "gimple.h" 670)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_SINGLE_LAYOUT")
@@ -18258,15 +18258,15 @@
  (!type already_seen 1096)
  
  (!type struct 1099 nil  gc_pointed_to "gimple_statement_omp_continue"
-  (!srcfileloc  "gimple.h" 651)
+  (!srcfileloc  "gimple.h" 652)
   (!fields 2 
    (!pair  "control_def"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 647)
+    (!srcfileloc  "gimple.h" 648)
     nil )
    (!pair  "control_use"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 650)
+    (!srcfileloc  "gimple.h" 651)
     nil )
   )
   (!options 
@@ -18277,15 +18277,15 @@
  )
  
  (!type struct 1100 nil  gc_pointed_to "gimple_statement_omp_sections"
-  (!srcfileloc  "gimple.h" 634)
+  (!srcfileloc  "gimple.h" 635)
   (!fields 2 
    (!pair  "clauses"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 628)
+    (!srcfileloc  "gimple.h" 629)
     nil )
    (!pair  "control"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 633)
+    (!srcfileloc  "gimple.h" 634)
     nil )
   )
   (!options 
@@ -18296,19 +18296,19 @@
  )
  
  (!type struct 1101 nil  gc_pointed_to "gimple_statement_omp_task"
-  (!srcfileloc  "gimple.h" 613)
+  (!srcfileloc  "gimple.h" 614)
   (!fields 3 
    (!pair  "copy_fn"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 607)
+    (!srcfileloc  "gimple.h" 608)
     nil )
    (!pair  "arg_size"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 611)
+    (!srcfileloc  "gimple.h" 612)
     nil )
    (!pair  "arg_align"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 612)
+    (!srcfileloc  "gimple.h" 613)
     nil )
   )
   (!options 
@@ -18316,26 +18316,26 @@
   )
   511 nil 
   (!type struct 1102 nil  gc_pointed_to "gimple_statement_omp_taskreg"
-   (!srcfileloc  "gimple.h" 580)
+   (!srcfileloc  "gimple.h" 581)
    (!fields 0 )
    (!options 
     (!option tag string  "GSS_OMP_PARALLEL_LAYOUT")
    )
    511 nil 
    (!type struct 1103 nil  gc_pointed_to "gimple_statement_omp_parallel_layout"
-    (!srcfileloc  "gimple.h" 571)
+    (!srcfileloc  "gimple.h" 572)
     (!fields 3 
      (!pair  "clauses"
       (!type already_seen 5)
-      (!srcfileloc  "gimple.h" 562)
+      (!srcfileloc  "gimple.h" 563)
       nil )
      (!pair  "child_fn"
       (!type already_seen 5)
-      (!srcfileloc  "gimple.h" 566)
+      (!srcfileloc  "gimple.h" 567)
       nil )
      (!pair  "data_arg"
       (!type already_seen 5)
-      (!srcfileloc  "gimple.h" 570)
+      (!srcfileloc  "gimple.h" 571)
       nil )
     )
     (!options 
@@ -18348,7 +18348,7 @@
  )
  
  (!type struct 1104 nil  gc_pointed_to "gimple_statement_omp_target"
-  (!srcfileloc  "gimple.h" 596)
+  (!srcfileloc  "gimple.h" 597)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_PARALLEL_LAYOUT")
@@ -18358,7 +18358,7 @@
  )
  
  (!type struct 1105 nil  gc_pointed_to "gimple_statement_omp_parallel"
-  (!srcfileloc  "gimple.h" 589)
+  (!srcfileloc  "gimple.h" 590)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_OMP_PARALLEL_LAYOUT")
@@ -18372,54 +18372,54 @@
  (!type already_seen 1103)
  
  (!type struct 1106 nil  gc_pointed_to "gimple_statement_omp_for"
-  (!srcfileloc  "gimple.h" 551)
+  (!srcfileloc  "gimple.h" 552)
   (!fields 4 
    (!pair  "clauses"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 539)
+    (!srcfileloc  "gimple.h" 540)
     nil )
    (!pair  "collapse"
     (!type already_seen 9)
-    (!srcfileloc  "gimple.h" 543)
+    (!srcfileloc  "gimple.h" 544)
     nil )
    (!pair  "iter"
     (!type pointer 1107 nil  gc_unused
      (!type struct 1108 
       (!type already_seen 1107)
       gc_used "gimple_omp_for_iter"
-      (!srcfileloc  "gimple.h" 529)
+      (!srcfileloc  "gimple.h" 530)
       (!fields 5 
        (!pair  "cond"
         (!type already_seen 9)
-        (!srcfileloc  "gimple.h" 516)
+        (!srcfileloc  "gimple.h" 517)
         nil )
        (!pair  "index"
         (!type already_seen 5)
-        (!srcfileloc  "gimple.h" 519)
+        (!srcfileloc  "gimple.h" 520)
         nil )
        (!pair  "initial"
         (!type already_seen 5)
-        (!srcfileloc  "gimple.h" 522)
+        (!srcfileloc  "gimple.h" 523)
         nil )
        (!pair  "final"
         (!type already_seen 5)
-        (!srcfileloc  "gimple.h" 525)
+        (!srcfileloc  "gimple.h" 526)
         nil )
        (!pair  "incr"
         (!type already_seen 5)
-        (!srcfileloc  "gimple.h" 528)
+        (!srcfileloc  "gimple.h" 529)
         nil )
       )
       nil 511 nil nil )
     )
-    (!srcfileloc  "gimple.h" 546)
+    (!srcfileloc  "gimple.h" 547)
     (!options 
      (!option length string  "%h.collapse")
     )
    )
    (!pair  "pre_body"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 550)
+    (!srcfileloc  "gimple.h" 551)
     nil )
   )
   (!options 
@@ -18432,11 +18432,11 @@
  (!type already_seen 1108)
  
  (!type struct 1109 nil  gc_pointed_to "gimple_statement_omp_critical"
-  (!srcfileloc  "gimple.h" 511)
+  (!srcfileloc  "gimple.h" 512)
   (!fields 1 
    (!pair  "name"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 510)
+    (!srcfileloc  "gimple.h" 511)
     nil )
   )
   (!options 
@@ -18447,33 +18447,33 @@
  )
  
  (!type struct 1110 nil  gc_pointed_to "gimple_statement_asm"
-  (!srcfileloc  "gimple.h" 499)
+  (!srcfileloc  "gimple.h" 500)
   (!fields 6 
    (!pair  "string"
     (!type already_seen 36)
-    (!srcfileloc  "gimple.h" 485)
+    (!srcfileloc  "gimple.h" 486)
     nil )
    (!pair  "ni"
     (!type already_seen 28)
-    (!srcfileloc  "gimple.h" 489)
+    (!srcfileloc  "gimple.h" 490)
     nil )
    (!pair  "no"
     (!type already_seen 28)
-    (!srcfileloc  "gimple.h" 490)
+    (!srcfileloc  "gimple.h" 491)
     nil )
    (!pair  "nc"
     (!type already_seen 28)
-    (!srcfileloc  "gimple.h" 491)
+    (!srcfileloc  "gimple.h" 492)
     nil )
    (!pair  "nl"
     (!type already_seen 28)
-    (!srcfileloc  "gimple.h" 492)
+    (!srcfileloc  "gimple.h" 493)
     nil )
    (!pair  "op"
     (!type array 1111 nil  gc_used "1" 
      (!type already_seen 5)
     )
-    (!srcfileloc  "gimple.h" 498)
+    (!srcfileloc  "gimple.h" 499)
     (!options 
      (!option length string  "%h.num_ops")
     )
@@ -18487,11 +18487,11 @@
  )
  
  (!type struct 1112 nil  gc_pointed_to "gimple_statement_wce"
-  (!srcfileloc  "gimple.h" 473)
+  (!srcfileloc  "gimple.h" 474)
   (!fields 1 
    (!pair  "cleanup"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 472)
+    (!srcfileloc  "gimple.h" 473)
     nil )
   )
   (!options 
@@ -18502,15 +18502,15 @@
  )
  
  (!type struct 1113 nil  gc_pointed_to "gimple_statement_try"
-  (!srcfileloc  "gimple.h" 442)
+  (!srcfileloc  "gimple.h" 443)
   (!fields 2 
    (!pair  "eval"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 437)
+    (!srcfileloc  "gimple.h" 438)
     nil )
    (!pair  "cleanup"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 441)
+    (!srcfileloc  "gimple.h" 442)
     nil )
   )
   (!options 
@@ -18521,18 +18521,18 @@
  )
  
  (!type struct 1114 nil  gc_pointed_to "gimple_statement_eh_dispatch"
-  (!srcfileloc  "gimple.h" 425)
+  (!srcfileloc  "gimple.h" 426)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_EH_CTRL")
   )
   511 nil 
   (!type struct 1115 nil  gc_pointed_to "gimple_statement_eh_ctrl"
-   (!srcfileloc  "gimple.h" 411)
+   (!srcfileloc  "gimple.h" 412)
    (!fields 1 
     (!pair  "region"
      (!type already_seen 9)
-     (!srcfileloc  "gimple.h" 410)
+     (!srcfileloc  "gimple.h" 411)
      nil )
    )
    (!options 
@@ -18544,7 +18544,7 @@
  )
  
  (!type struct 1116 nil  gc_pointed_to "gimple_statement_resx"
-  (!srcfileloc  "gimple.h" 418)
+  (!srcfileloc  "gimple.h" 419)
   (!fields 0 )
   (!options 
    (!option tag string  "GSS_EH_CTRL")
@@ -18556,19 +18556,19 @@
  (!type already_seen 1115)
  
  (!type struct 1117 nil  gc_pointed_to "gimple_statement_phi"
-  (!srcfileloc  "gimple.h" 398)
+  (!srcfileloc  "gimple.h" 399)
   (!fields 4 
    (!pair  "capacity"
     (!type already_seen 9)
-    (!srcfileloc  "gimple.h" 390)
+    (!srcfileloc  "gimple.h" 391)
     nil )
    (!pair  "nargs"
     (!type already_seen 9)
-    (!srcfileloc  "gimple.h" 391)
+    (!srcfileloc  "gimple.h" 392)
     nil )
    (!pair  "result"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 394)
+    (!srcfileloc  "gimple.h" 395)
     nil )
    (!pair  "args"
     (!type array 1118 nil  gc_used "1" 
@@ -18590,7 +18590,7 @@
       )
       nil 511 nil nil )
     )
-    (!srcfileloc  "gimple.h" 397)
+    (!srcfileloc  "gimple.h" 398)
     (!options 
      (!option length string  "%h.nargs")
     )
@@ -18604,11 +18604,11 @@
  )
  
  (!type struct 1120 nil  gc_pointed_to "gimple_statement_eh_mnt"
-  (!srcfileloc  "gimple.h" 380)
+  (!srcfileloc  "gimple.h" 381)
   (!fields 1 
    (!pair  "fndecl"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 379)
+    (!srcfileloc  "gimple.h" 380)
     nil )
   )
   (!options 
@@ -18619,15 +18619,15 @@
  )
  
  (!type struct 1121 nil  gc_pointed_to "gimple_statement_eh_else"
-  (!srcfileloc  "gimple.h" 369)
+  (!srcfileloc  "gimple.h" 370)
   (!fields 2 
    (!pair  "n_body"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 368)
+    (!srcfileloc  "gimple.h" 369)
     nil )
    (!pair  "e_body"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 368)
+    (!srcfileloc  "gimple.h" 369)
     nil )
   )
   (!options 
@@ -18638,15 +18638,15 @@
  )
  
  (!type struct 1122 nil  gc_pointed_to "gimple_statement_eh_filter"
-  (!srcfileloc  "gimple.h" 358)
+  (!srcfileloc  "gimple.h" 359)
   (!fields 2 
    (!pair  "types"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 353)
+    (!srcfileloc  "gimple.h" 354)
     nil )
    (!pair  "failure"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 357)
+    (!srcfileloc  "gimple.h" 358)
     nil )
   )
   (!options 
@@ -18657,15 +18657,15 @@
  )
  
  (!type struct 1123 nil  gc_pointed_to "gimple_statement_catch"
-  (!srcfileloc  "gimple.h" 341)
+  (!srcfileloc  "gimple.h" 342)
   (!fields 2 
    (!pair  "types"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 337)
+    (!srcfileloc  "gimple.h" 338)
     nil )
    (!pair  "handler"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 340)
+    (!srcfileloc  "gimple.h" 341)
     nil )
   )
   (!options 
@@ -18676,19 +18676,19 @@
  )
  
  (!type struct 1124 nil  gc_pointed_to "gimple_statement_bind"
-  (!srcfileloc  "gimple.h" 326)
+  (!srcfileloc  "gimple.h" 327)
   (!fields 3 
    (!pair  "vars"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 314)
+    (!srcfileloc  "gimple.h" 315)
     nil )
    (!pair  "block"
     (!type already_seen 5)
-    (!srcfileloc  "gimple.h" 322)
+    (!srcfileloc  "gimple.h" 323)
     nil )
    (!pair  "body"
     (!type already_seen 310)
-    (!srcfileloc  "gimple.h" 325)
+    (!srcfileloc  "gimple.h" 326)
     nil )
   )
   (!options 
@@ -18701,30 +18701,30 @@
  (!type already_seen 1097)
  
  (!type struct 1125 nil  gc_pointed_to "gimple_statement_call"
-  (!srcfileloc  "gimple.h" 290)
+  (!srcfileloc  "gimple.h" 291)
   (!fields 4 
    (!pair  "call_used"
     (!type already_seen 384)
-    (!srcfileloc  "gimple.h" 276)
+    (!srcfileloc  "gimple.h" 277)
     nil )
    (!pair  "call_clobbered"
     (!type already_seen 384)
-    (!srcfileloc  "gimple.h" 277)
+    (!srcfileloc  "gimple.h" 278)
     nil )
    (!pair  "u"
-    (!type union 1126 nil  gc_used "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/gimple.h:280"
-     (!srcfileloc  "gimple.h" 283)
+    (!type union 1126 nil  gc_used "anonymous:/mnt/jenkins/workspace/linaro-android_toolchain-4.9-linaro-git/build/objdir/../build/../gcc/gcc-linaro-4.9-branch/gcc/gimple.h:281"
+     (!srcfileloc  "gimple.h" 284)
      (!fields 2 
       (!pair  "fntype"
        (!type already_seen 5)
-       (!srcfileloc  "gimple.h" 281)
+       (!srcfileloc  "gimple.h" 282)
        (!options 
         (!option tag string  "0")
        )
       )
       (!pair  "internal_fn"
        (!type already_seen 9)
-       (!srcfileloc  "gimple.h" 282)
+       (!srcfileloc  "gimple.h" 283)
        (!options 
         (!option tag string  "GF_CALL_INTERNAL")
        )
@@ -18734,13 +18734,13 @@
       (!option desc string  "%1.subcode & GF_CALL_INTERNAL")
      )
      511 nil )
-    (!srcfileloc  "gimple.h" 283)
+    (!srcfileloc  "gimple.h" 284)
     nil )
    (!pair  "op"
     (!type array 1127 nil  gc_used "1" 
      (!type already_seen 5)
     )
-    (!srcfileloc  "gimple.h" 289)
+    (!srcfileloc  "gimple.h" 290)
     (!options 
      (!option length string  "%h.num_ops")
     )
@@ -18758,13 +18758,13 @@
  (!type already_seen 384)
  
  (!type struct 1128 nil  gc_pointed_to "gimple_statement_with_memory_ops"
-  (!srcfileloc  "gimple.h" 265)
+  (!srcfileloc  "gimple.h" 266)
   (!fields 1 
    (!pair  "op"
     (!type array 1129 nil  gc_used "1" 
      (!type already_seen 5)
     )
-    (!srcfileloc  "gimple.h" 264)
+    (!srcfileloc  "gimple.h" 265)
     (!options 
      (!option length string  "%h.num_ops")
     )
@@ -18780,13 +18780,13 @@
  (!type already_seen 1089)
  
  (!type struct 1130 nil  gc_pointed_to "gimple_statement_with_ops"
-  (!srcfileloc  "gimple.h" 234)
+  (!srcfileloc  "gimple.h" 235)
   (!fields 1 
    (!pair  "op"
     (!type array 1131 nil  gc_used "1" 
      (!type already_seen 5)
     )
-    (!srcfileloc  "gimple.h" 233)
+    (!srcfileloc  "gimple.h" 234)
     (!options 
      (!option length string  "%h.num_ops")
     )
@@ -22500,7 +22500,7 @@
   nil )
  (!pair  "secondary_vptr_vtt_init_data"
   (!type already_seen 675)
-  (!srcfileloc  "cp/class.c" 8477)
+  (!srcfileloc  "cp/class.c" 8500)
   nil )
  (!pair  "find_final_overrider_data"
   (!type already_seen 676)
@@ -22634,11 +22634,11 @@
   nil )
  (!pair  "constexpr_call"
   (!type already_seen 709)
-  (!srcfileloc  "cp/semantics.c" 8083)
+  (!srcfileloc  "cp/semantics.c" 8084)
   nil )
  (!pair  "constexpr_fundef"
   (!type already_seen 712)
-  (!srcfileloc  "cp/semantics.c" 7400)
+  (!srcfileloc  "cp/semantics.c" 7401)
   nil )
  (!pair  "vec<deferred_access,va_gc>"
   (!type already_seen 714)
@@ -22706,11 +22706,11 @@
   nil )
  (!pair  "deferred_access_check"
   (!type already_seen 73)
-  (!srcfileloc  "cp/cp-tree.h" 5697)
+  (!srcfileloc  "cp/cp-tree.h" 5698)
   nil )
  (!pair  "walk_namespaces_fn"
   (!type already_seen 9)
-  (!srcfileloc  "cp/cp-tree.h" 5277)
+  (!srcfileloc  "cp/cp-tree.h" 5278)
   nil )
  (!pair  "cp_parameter_declarator"
   (!type already_seen 742)
@@ -23330,23 +23330,23 @@
   nil )
  (!pair  "arm_mangle_map_entry"
   (!type already_seen 1013)
-  (!srcfileloc  "config/arm/arm.c" 29847)
+  (!srcfileloc  "config/arm/arm.c" 29835)
   nil )
  (!pair  "builtin_arg"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 25188)
+  (!srcfileloc  "config/arm/arm.c" 25176)
   nil )
  (!pair  "neon_builtin_datum"
   (!type already_seen 1015)
-  (!srcfileloc  "config/arm/arm.c" 23298)
+  (!srcfileloc  "config/arm/arm.c" 23286)
   nil )
  (!pair  "neon_itype"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 23290)
+  (!srcfileloc  "config/arm/arm.c" 23278)
   nil )
  (!pair  "neon_builtin_type_mode"
   (!type already_seen 9)
-  (!srcfileloc  "config/arm/arm.c" 23221)
+  (!srcfileloc  "config/arm/arm.c" 23209)
   nil )
  (!pair  "arm_pragma_enum"
   (!type already_seen 9)
@@ -23454,7 +23454,7 @@
   nil )
  (!pair  "elt_t"
   (!type already_seen 1087)
-  (!srcfileloc  "gimple.h" 1278)
+  (!srcfileloc  "gimple.h" 1279)
   nil )
  (!pair  "gimple_vec"
   (!type already_seen 1132)
@@ -25836,7 +25836,7 @@
  )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 5)
-  (!srcfileloc  "cp/class.c" 8857)
+  (!srcfileloc  "cp/class.c" 8880)
   nil )
  (!pair  "sizeof_biggest_empty_class"
   (!type already_seen 5)
@@ -25902,7 +25902,7 @@
  )
  (!pair  "constexpr_call_table"
   (!type already_seen 1482)
-  (!srcfileloc  "cp/semantics.c" 8088)
+  (!srcfileloc  "cp/semantics.c" 8089)
   (!options 
    (!option param_is type 
     (!type already_seen 709)
@@ -25911,7 +25911,7 @@
  )
  (!pair  "constexpr_fundef_table"
   (!type already_seen 1484)
-  (!srcfileloc  "cp/semantics.c" 7405)
+  (!srcfileloc  "cp/semantics.c" 7406)
   (!options 
    (!option param_is type 
     (!type already_seen 712)
@@ -25932,7 +25932,7 @@
   nil )
  (!pair  "last_error_tinst_level"
   (!type already_seen 725)
-  (!srcfileloc  "cp/pt.c" 8235)
+  (!srcfileloc  "cp/pt.c" 8238)
   nil )
  (!pair  "canonical_template_parms"
   (!type already_seen 45)
@@ -25978,19 +25978,19 @@
   nil )
  (!pair  "ssdf_decls"
   (!type already_seen 45)
-  (!srcfileloc  "cp/decl2.c" 3312)
+  (!srcfileloc  "cp/decl2.c" 3317)
   nil )
  (!pair  "ssdf_decl"
   (!type already_seen 5)
-  (!srcfileloc  "cp/decl2.c" 3308)
+  (!srcfileloc  "cp/decl2.c" 3313)
   nil )
  (!pair  "priority_decl"
   (!type already_seen 5)
-  (!srcfileloc  "cp/decl2.c" 3305)
+  (!srcfileloc  "cp/decl2.c" 3310)
   nil )
  (!pair  "initialize_p_decl"
   (!type already_seen 5)
-  (!srcfileloc  "cp/decl2.c" 3302)
+  (!srcfileloc  "cp/decl2.c" 3307)
   nil )
  (!pair  "no_linkage_decls"
   (!type already_seen 45)
@@ -26031,11 +26031,11 @@
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 45)
-  (!srcfileloc  "cp/cp-tree.h" 5631)
+  (!srcfileloc  "cp/cp-tree.h" 5632)
   nil )
  (!pair  "deferred_mark_used_calls"
   (!type already_seen 45)
-  (!srcfileloc  "cp/cp-tree.h" 5301)
+  (!srcfileloc  "cp/cp-tree.h" 5302)
   nil )
  (!pair  "assignment_operator_name_info"
   (!type array 1568 nil  gc_used "(int) MAX_TREE_CODES" 
@@ -26559,7 +26559,7 @@
   (!type array 1585 nil  gc_used "ARM_BUILTIN_MAX" 
    (!type already_seen 5)
   )
-  (!srcfileloc  "config/arm/arm.c" 23682)
+  (!srcfileloc  "config/arm/arm.c" 23670)
   nil )
  (!pair  "tls_get_addr_libfunc"
   (!type already_seen 136)
