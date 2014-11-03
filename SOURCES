@@ -1,0 +1,53 @@
+Using built-in specs.
+COLLECT_GCC=bin/arm-linux-androideabi-gcc
+COLLECT_LTO_WRAPPER=/usr/local/google/home/xur/work/AOSP_CP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/../libexec/gcc/arm-linux-androideabi/4.9.x-google/lto-wrapper
+Target: arm-linux-androideabi
+Configured with: /tmp/AOSP-toolchain/build/../gcc/gcc-4.9/configure --prefix=/tmp/ndk-xur/build/toolchain/prefix --target=arm-linux-androideabi --host=x86_64-linux-gnu --build=x86_64-linux-gnu --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --with-gmp=/tmp/ndk-xur/build/toolchain/temp-install --with-mpfr=/tmp/ndk-xur/build/toolchain/temp-install --with-mpc=/tmp/ndk-xur/build/toolchain/temp-install --with-cloog=/tmp/ndk-xur/build/toolchain/temp-install --with-isl=/tmp/ndk-xur/build/toolchain/temp-install --with-ppl=/tmp/ndk-xur/build/toolchain/temp-install --disable-ppl-version-check --disable-cloog-version-check --disable-isl-version-check --enable-cloog-backend=isl --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --disable-libssp --enable-threads --disable-nls --disable-libmudflap --disable-libgomp --disable-libstdc__-v3 --disable-sjlj-exceptions --disable-shared --disable-tls --disable-libitm --with-float=soft --with-fpu=vfp --with-arch=armv5te --enable-target-optspace --enable-initfini-array --disable-nls --prefix=/tmp/ndk-xur/build/toolchain/prefix --with-sysroot=/tmp/ndk-xur/build/toolchain/prefix/sysroot --with-binutils-version=2.24 --with-mpfr-version=3.1.1 --with-mpc-version=1.0.1 --with-gmp-version=5.0.5 --with-gcc-version=4.9 --with-gdb-version=7.7 --with-gxx-include-dir=/tmp/ndk-xur/build/toolchain/prefix/include/c++/4.9 --with-bugurl=http://source.android.com/source/report-bugs.html --disable-bootstrap --disable-libquadmath --enable-plugins --enable-libgomp --disable-libsanitizer --enable-gold --enable-graphite=yes --with-cloog-version=0.18.0 --with-isl-version=0.11.1 --enable-eh-frame-hdr-for-static --with-arch=armv5te --program-transform-name='s&^&arm-linux-androideabi-&' --enable-gold=default
+Thread model: posix
+gcc version 4.9.x-google 20140827 (prerelease) (GCC) 
+
+gcc:
+commit ba21122c63b06a70b620c8990c517b87198ad05b
+Author: Rong Xu <xur@google.com>
+
+    [4.9] Restore recog state after finding pre-madd instruction.
+    This patch backports svn r216853 from upsteam gcc-4.9 branch that
+    fixed a bug introduced in fixing cortex a53 erratum 835769.
+
+binutils:
+commit c8e1636493f7d40bb0ba37501e9a6f67cd062a31
+Author: Rong Xu <xur@google.com>
+
+    [2.24] Cortex-A53 erratum 835769 linker workaround
+
+gdb:
+commit 4d4fc852868e03aa125d19ec0ad7e7fbc157c81c
+Merge: 500f3b2 668248d
+Author: Andrew Hsieh <andrewhsieh@google.com>
+
+    Merge "Add MIPS R6 support."
+
+gmp:
+commit e6b9669dafc6a5f83c80b4b4176359b78bccdc90
+Author: David 'Digit' Turner <digit@google.com>
+
+    Add gmp-5.0.5.tar.bz2
+
+mpfr:
+commit bfcf1bfa38469208aaad8873cd4c68781061d90f
+Author: Andrew Hsieh <andrewhsieh@google.com>
+
+    add mpfr-3.1.1.tar.bz2
+
+build:
+commit 75542e77b565c2af968e48c1b12b32f343d913ae
+Author: Andrew Hsieh <andrewhsieh@google.com>
+
+    Fix binutils-2.24 detection
+
+expat:
+commit 40172a0ae9d40a068f1e1a48ffcf6a1ccf765ed5
+Author: Jing Yu <jingyu@google.com>
+
+    expat package for building gdb-7.3
+
