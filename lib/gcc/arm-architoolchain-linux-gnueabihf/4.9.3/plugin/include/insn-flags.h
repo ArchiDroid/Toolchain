@@ -64,8 +64,8 @@
 #define HAVE_align_4 1
 #define HAVE_align_8 1
 #define HAVE_consttable_end 1
-#define HAVE_consttable_1 (TARGET_THUMB1)
-#define HAVE_consttable_2 (TARGET_THUMB1)
+#define HAVE_consttable_1 1
+#define HAVE_consttable_2 1
 #define HAVE_consttable_4 1
 #define HAVE_consttable_8 1
 #define HAVE_consttable_16 1
