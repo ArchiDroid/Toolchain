@@ -1,11 +1,11 @@
 ArchiToolchain
 ===================================================
 This toolchain is optimized for:
-- ARMv7-a architecture (-march=armv7-a)
-- Cortex A9 CPU (-mcpu=cortex-a9 -mtune=cortex-a9)
-- NEON FPU (-mfpu=neon)
+- Generic architecture
+- Cortex A15 CPU (-mcpu=cortex-a15 -mtune=cortex-a15)
+- NEON VFPv4 FPU (-mfpu=neon-vfpv4)
 - Hard-float ABI (-mfloat-abi=hard)
-- Linux Kernel 3.0.X
+- Linux Kernel 3.4.X
 
 This toolchain uses:
 - Linaro GCC 4.9.X (latest)
@@ -26,28 +26,26 @@ Check [currently available toolchains](https://github.com/ArchiDroid/Toolchain/b
 
 You can use ArchiToolchain also in AOSP trees (during compiling of an Android) by adding it in your local manifest. Local manifest for AOSP is located in ```$(SRCTREE)/.repo/local_manifests/roomservice.xml```, where ```$(SRCTREE)``` is the root of your AOSP tree. Local manifest may not exist (yet), so you may need to create it firstly.
 
-Example for using ArchiToolchain with Lollipop AOSP tree:
+Example for using this ArchiToolchain with Lollipop AOSP tree:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 <!-- cut here -->
 <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" />
-<project name="ArchiDroid/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="architoolchain-4.9-arm-linux-gnueabihf-generic" />
+<project name="ArchiDroid/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="architoolchain-4.9-arm-linux-gnueabihf-cortex_a15_neon_vfpv4" />
 <!-- cut here -->
 </manifest>
 ```
 
-Example for using ArchiToolchain with KitKat AOSP tree:
+Example for using this ArchiToolchain with KitKat AOSP tree:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 <!-- cut here -->
 <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" />
-<project name="ArchiDroid/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" remote="github" revision="architoolchain-4.9-arm-linux-gnueabihf-generic" />
+<project name="ArchiDroid/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" remote="github" revision="architoolchain-4.9-arm-linux-gnueabihf-cortex_a15_neon_vfpv4" />
 <!-- cut here -->
 </manifest>
 ```
-
-Of course you should change ```revision="architoolchain-4.9-arm-linux-gnueabihf-generic"``` to the one that suits you best.
 
 After next ```repo sync```, you should notice that ArchiToolchain repo is available in the ```path``` specified by your manifest.
