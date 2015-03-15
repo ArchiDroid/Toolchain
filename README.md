@@ -18,7 +18,7 @@ Exact config used for building each toolchain is always available in ".config" f
 
 Each ArchiToolchain is pre-optimized for specific target, which means that some options are always used as the default ones. You can still override them by specifying your own flags during compilation.
 
-Check [currently available toolchains](https://github.com/ArchiDroid/Toolchain/branches/all?query=archi) for the one that suits you best. In case you can't find such, you can always use [generic ArchiToolchain](https://github.com/ArchiDroid/Toolchain/tree/architoolchain-4.9-arm-linux-gnueabihf-generic), which should work with all targets, but is not pre-optimized for any of them.
+Check [currently available toolchains](https://github.com/ArchiDroid/Toolchain/branches/all?query=archi) for the one that suits you best. In case you can't find such, you can always use [generic ArchiToolchain](https://github.com/ArchiDroid/Toolchain/tree/architoolchain-4.9-arm-linux-gnueabi-generic), which should work with all targets, but is not pre-optimized for any of them.
 
 
 ---------------------------------------------------
