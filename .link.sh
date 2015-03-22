@@ -36,7 +36,7 @@ if [[ -d "bin" ]]; then
 			ln -s "$BINARY" "$TOOL"
 			echo "Linked: $TOOL"
 		fi
-	done < <(find . -type f)
+	done < <(find . -iname "*architoolchain*")
 else
 	echo "ERROR: No bin folder?"
 	exit 1
