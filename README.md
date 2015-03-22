@@ -47,5 +47,5 @@ Example for using this ArchiToolchain with KitKat AOSP tree:
 <!-- cut here -->
 </manifest>
 ```
-gn
+
 After next ```repo sync```, you should notice that ArchiToolchain repo is available in the ```path``` specified by your manifest.
