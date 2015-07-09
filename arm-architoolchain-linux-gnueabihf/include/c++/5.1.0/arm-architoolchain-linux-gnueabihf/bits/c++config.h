@@ -899,7 +899,7 @@ namespace std
 
 /* Define to 1 if the target runtime linker supports binding the same symbol
    to different versions. */
-/* #undef _GLIBCXX_HAVE_SYMVER_SYMBOL_RENAMING_RUNTIME_SUPPORT */
+#define _GLIBCXX_HAVE_SYMVER_SYMBOL_RENAMING_RUNTIME_SUPPORT 1
 
 /* Define to 1 if you have the <sys/filio.h> header file. */
 /* #undef _GLIBCXX_HAVE_SYS_FILIO_H */
@@ -1275,13 +1275,13 @@ namespace std
 #define _GLIBCXX_STDIO_SEEK_END 2
 
 /* Define to use symbol versioning in the shared library. */
-/* #undef _GLIBCXX_SYMVER */
+#define _GLIBCXX_SYMVER 1
 
 /* Define to use darwin versioning in the shared library. */
 /* #undef _GLIBCXX_SYMVER_DARWIN */
 
 /* Define to use GNU versioning in the shared library. */
-/* #undef _GLIBCXX_SYMVER_GNU */
+#define _GLIBCXX_SYMVER_GNU 1
 
 /* Define to use GNU namespace versioning in the shared library. */
 /* #undef _GLIBCXX_SYMVER_GNU_NAMESPACE */

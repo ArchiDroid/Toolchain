@@ -2,7 +2,7 @@ ArchiToolchain
 ===================================================
 This toolchain is optimized for:
 - Hard-float ABI (-mfloat-abi=hard)
-- Linux Kernel 4.0.X (with legacy support down to 2.6.X)
+- Linux Kernel 4.1.X (with legacy support down to 2.6.X)
 
 This toolchain uses:
 - GNU GCC 5.1.X (latest)
