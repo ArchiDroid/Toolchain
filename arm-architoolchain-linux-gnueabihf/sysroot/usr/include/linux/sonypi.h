@@ -143,4 +143,4 @@
 #define SONYPI_IOCGTEMP		_IOR('v', 12, __u8)
 
 
-#endif				/* _SONYPI_H_ */
+#endif /* _SONYPI_H_ */

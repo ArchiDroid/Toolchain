@@ -68,5 +68,7 @@ struct screen_info {
 
 #define VIDEO_FLAGS_NOCURSOR	(1 << 0) /* The video mode has no cursor set */
 
+#define VIDEO_CAPABILITY_SKIP_QUIRKS	(1 << 0)
+
 
 #endif /* _SCREEN_INFO_H */

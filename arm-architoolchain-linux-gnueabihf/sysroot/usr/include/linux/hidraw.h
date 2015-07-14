@@ -1,10 +1,6 @@
-#ifndef _HIDRAW_H
-#define _HIDRAW_H
-
 /*
  *  Copyright (c) 2007 Jiri Kosina
  */
-
 /*
  * This program is free software; you can redistribute it and/or modify it
  * under the terms and conditions of the GNU General Public License,
@@ -14,6 +10,10 @@
  * this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
  */
+#ifndef _HIDRAW_H
+#define _HIDRAW_H
+
+
 
 #include <linux/hid.h>
 #include <linux/types.h>
@@ -47,4 +47,4 @@ struct hidraw_devinfo {
 
 /* kernel-only API declarations */
 
-#endif
+#endif /* _HIDRAW_H */

@@ -26,6 +26,18 @@
 #define EPOLL_CTL_DEL 2
 #define EPOLL_CTL_MOD 3
 
+/*
+ * Request the handling of system wakeup events so as to prevent system suspends
+ * from happening while those events are being processed.
+ *
+ * Assuming neither EPOLLET nor EPOLLONESHOT is set, system suspends will not be
+ * re-allowed until epoll_wait is called again after consuming the wakeup
+ * event(s).
+ *
+ * Requires CAP_BLOCK_SUSPEND
+ */
+#define EPOLLWAKEUP (1 << 29)
+
 /* Set the One Shot behaviour for the target file descriptor */
 #define EPOLLONESHOT (1 << 30)
 
@@ -49,6 +61,16 @@ struct epoll_event {
 	__u64 data;
 } EPOLL_PACKED;
 
-
-#endif /* #ifndef _LINUX_EVENTPOLL_H */
-
+#ifdef CONFIG_PM_SLEEP
+static __inline__ void ep_take_care_of_epollwakeup(struct epoll_event *epev)
+{
+	if ((epev->events & EPOLLWAKEUP) && !capable(CAP_BLOCK_SUSPEND))
+		epev->events &= ~EPOLLWAKEUP;
+}
+#else
+static __inline__ void ep_take_care_of_epollwakeup(struct epoll_event *epev)
+{
+	epev->events &= ~EPOLLWAKEUP;
+}
+#endif
+#endif /* _LINUX_EVENTPOLL_H */

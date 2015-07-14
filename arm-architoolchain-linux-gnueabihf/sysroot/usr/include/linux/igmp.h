@@ -125,4 +125,4 @@ struct igmpv3_query {
  * struct for keeping the multicast list in
  */
 
-#endif
+#endif /* _LINUX_IGMP_H */

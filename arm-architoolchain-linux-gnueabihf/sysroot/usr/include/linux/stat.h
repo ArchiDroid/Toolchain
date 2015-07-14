@@ -42,4 +42,4 @@
 #endif
 
 
-#endif
+#endif /* _LINUX_STAT_H */

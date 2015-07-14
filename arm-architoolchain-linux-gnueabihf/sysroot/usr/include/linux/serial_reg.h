@@ -32,13 +32,17 @@
 
 #define UART_IIR	2	/* In:  Interrupt ID Register */
 #define UART_IIR_NO_INT		0x01 /* No interrupts pending */
-#define UART_IIR_ID		0x06 /* Mask for the interrupt ID */
+#define UART_IIR_ID		0x0e /* Mask for the interrupt ID */
 #define UART_IIR_MSI		0x00 /* Modem status interrupt */
 #define UART_IIR_THRI		0x02 /* Transmitter holding register empty */
 #define UART_IIR_RDI		0x04 /* Receiver data interrupt */
 #define UART_IIR_RLSI		0x06 /* Receiver line status interrupt */
 
 #define UART_IIR_BUSY		0x07 /* DesignWare APB Busy Detect */
+
+#define UART_IIR_RX_TIMEOUT	0x0c /* OMAP RX Timeout interrupt */
+#define UART_IIR_XOFF		0x10 /* OMAP XOFF/Special Character */
+#define UART_IIR_CTS_RTS_DSR	0x20 /* OMAP CTS/RTS/DSR Change */
 
 #define UART_FCR	2	/* Out: FIFO Control Register */
 #define UART_FCR_ENABLE_FIFO	0x01 /* Enable the FIFO */
@@ -82,7 +86,13 @@
 #define UART_FCR6_T_TRIGGER_8	0x10 /* Mask for transmit trigger set at 8 */
 #define UART_FCR6_T_TRIGGER_24  0x20 /* Mask for transmit trigger set at 24 */
 #define UART_FCR6_T_TRIGGER_30	0x30 /* Mask for transmit trigger set at 30 */
-#define UART_FCR7_64BYTE	0x20 /* Go into 64 byte mode (TI16C750) */
+#define UART_FCR7_64BYTE	0x20 /* Go into 64 byte mode (TI16C750 and
+					some Freescale UARTs) */
+
+#define UART_FCR_R_TRIG_SHIFT		6
+#define UART_FCR_R_TRIG_BITS(x)		\
+	(((x) & UART_FCR_TRIGGER_MASK) >> UART_FCR_R_TRIG_SHIFT)
+#define UART_FCR_R_TRIG_MAX_STATE	4
 
 #define UART_LCR	3	/* Out: Line Control Register */
 /*
@@ -152,6 +162,7 @@
  * LCR=0xBF (or DLAB=1 for 16C660)
  */
 #define UART_EFR	2	/* I/O: Extended Features Register */
+#define UART_XR_EFR	9	/* I/O: Extended Features Register (XR17D15x) */
 #define UART_EFR_CTS		0x80 /* CTS flow control */
 #define UART_EFR_RTS		0x40 /* RTS flow control */
 #define UART_EFR_SCD		0x20 /* Special character detect */
@@ -229,25 +240,6 @@
 #define UART_FCR_PXAR8	0x40	/* receive FIFO threshold = 8 */
 #define UART_FCR_PXAR16	0x80	/* receive FIFO threshold = 16 */
 #define UART_FCR_PXAR32	0xc0	/* receive FIFO threshold = 32 */
-
-/*
- * Intel MID on-chip HSU (High Speed UART) defined bits
- */
-#define UART_FCR_HSU_64_1B	0x00	/* receive FIFO treshold = 1 */
-#define UART_FCR_HSU_64_16B	0x40	/* receive FIFO treshold = 16 */
-#define UART_FCR_HSU_64_32B	0x80	/* receive FIFO treshold = 32 */
-#define UART_FCR_HSU_64_56B	0xc0	/* receive FIFO treshold = 56 */
-
-#define UART_FCR_HSU_16_1B	0x00	/* receive FIFO treshold = 1 */
-#define UART_FCR_HSU_16_4B	0x40	/* receive FIFO treshold = 4 */
-#define UART_FCR_HSU_16_8B	0x80	/* receive FIFO treshold = 8 */
-#define UART_FCR_HSU_16_14B	0xc0	/* receive FIFO treshold = 14 */
-
-#define UART_FCR_HSU_64B_FIFO	0x20	/* chose 64 bytes FIFO */
-#define UART_FCR_HSU_16B_FIFO	0x00	/* chose 16 bytes FIFO */
-
-#define UART_FCR_HALF_EMPT_TXI	0x00	/* trigger TX_EMPT IRQ for half empty */
-#define UART_FCR_FULL_EMPT_TXI	0x08	/* trigger TX_EMPT IRQ for full empty */
 
 /*
  * These register definitions are for the 16C950
@@ -349,6 +341,7 @@
 #define UART_OMAP_SYSC		0x15	/* System configuration register */
 #define UART_OMAP_SYSS		0x16	/* System status register */
 #define UART_OMAP_WER		0x17	/* Wake-up enable register */
+#define UART_OMAP_TX_LVL	0x1a	/* TX FIFO level register */
 
 /*
  * These are the definitions for the MDR1 register
@@ -361,6 +354,24 @@
 #define UART_OMAP_MDR1_FIR_MODE		0x05	/* FIR mode */
 #define UART_OMAP_MDR1_CIR_MODE		0x06	/* CIR mode */
 #define UART_OMAP_MDR1_DISABLE		0x07	/* Disable (default state) */
+
+/*
+ * These are definitions for the Exar XR17V35X and XR17(C|D)15X
+ */
+#define UART_EXAR_8XMODE	0x88	/* 8X sampling rate select */
+#define UART_EXAR_SLEEP		0x8b	/* Sleep mode */
+#define UART_EXAR_DVID		0x8d	/* Device identification */
+
+#define UART_EXAR_FCTR		0x08	/* Feature Control Register */
+#define UART_FCTR_EXAR_IRDA	0x08	/* IrDa data encode select */
+#define UART_FCTR_EXAR_485	0x10	/* Auto 485 half duplex dir ctl */
+#define UART_FCTR_EXAR_TRGA	0x00	/* FIFO trigger table A */
+#define UART_FCTR_EXAR_TRGB	0x60	/* FIFO trigger table B */
+#define UART_FCTR_EXAR_TRGC	0x80	/* FIFO trigger table C */
+#define UART_FCTR_EXAR_TRGD	0xc0	/* FIFO trigger table D programmable */
+
+#define UART_EXAR_TXTRG		0x0a	/* Tx FIFO trigger level write-only */
+#define UART_EXAR_RXTRG		0x0b	/* Rx FIFO trigger level write-only */
 
 #endif /* _LINUX_SERIAL_REG_H */
 

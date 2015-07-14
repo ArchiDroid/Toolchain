@@ -1,19 +1,11 @@
 /*
  * Copyright 1996, 1997, 1998 Hans Reiser, see reiserfs/README for licensing and copyright details
  */
-
-				/* this file has an amazingly stupid
-				   name, yura please fix it to be
-				   reiserfs.h, and merge all the rest
-				   of our .h files that are in this
-				   directory into it.  */
-
 #ifndef _LINUX_REISER_FS_H
 #define _LINUX_REISER_FS_H
 
 #include <linux/types.h>
 #include <linux/magic.h>
-
 
 /*
  *  include/linux/reiser_fs.h
@@ -30,6 +22,5 @@
 #define REISERFS_IOC_SETFLAGS		FS_IOC_SETFLAGS
 #define REISERFS_IOC_GETVERSION		FS_IOC_GETVERSION
 #define REISERFS_IOC_SETVERSION		FS_IOC_SETVERSION
-
 
 #endif				/* _LINUX_REISER_FS_H */

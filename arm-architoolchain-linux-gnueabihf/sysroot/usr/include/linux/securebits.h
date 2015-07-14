@@ -1,5 +1,5 @@
 #ifndef _LINUX_SECUREBITS_H
-#define _LINUX_SECUREBITS_H 1
+#define _LINUX_SECUREBITS_H
 
 /* Each securesetting is implemented using two bits. One bit specifies
    whether the setting is on or off. The other bit specify whether the
@@ -48,4 +48,4 @@
 				 issecure_mask(SECURE_KEEP_CAPS))
 #define SECURE_ALL_LOCKS	(SECURE_ALL_BITS << 1)
 
-#endif /* !_LINUX_SECUREBITS_H */
+#endif /* _LINUX_SECUREBITS_H */

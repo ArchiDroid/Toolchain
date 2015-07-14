@@ -1,6 +1,3 @@
-#ifndef _LINUX_APM_H
-#define _LINUX_APM_H
-
 /*
  * Include file for the interface to an APM BIOS
  * Copyright 1994-2001 Stephen Rothwell (sfr@canb.auug.org.au)
@@ -15,6 +12,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
  */
+#ifndef _LINUX_APM_H
+#define _LINUX_APM_H
+
 
 #include <linux/types.h>
 
@@ -67,6 +67,8 @@ struct apm_bios_info {
 #define APM_USER_SUSPEND	0x000a
 #define APM_STANDBY_RESUME	0x000b
 #define APM_CAPABILITY_CHANGE	0x000c
+#define APM_USER_HIBERNATION	0x000d
+#define APM_HIBERNATION_RESUME	0x000e
 
 /*
  * Error codes
@@ -132,4 +134,4 @@ struct apm_bios_info {
 #define APM_IOC_STANDBY		_IO('A', 1)
 #define APM_IOC_SUSPEND		_IO('A', 2)
 
-#endif	/* LINUX_APM_H */
+#endif /* _LINUX_APM_H */

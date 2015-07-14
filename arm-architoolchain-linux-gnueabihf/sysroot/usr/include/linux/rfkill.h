@@ -1,6 +1,3 @@
-#ifndef __RFKILL_H
-#define __RFKILL_H
-
 /*
  * Copyright (C) 2006 - 2007 Ivo van Doorn
  * Copyright (C) 2007 Dmitry Torokhov
@@ -18,6 +15,9 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
+#ifndef __RFKILL_H
+#define __RFKILL_H
+
 
 #include <linux/types.h>
 
@@ -37,6 +37,7 @@
  * @RFKILL_TYPE_WWAN: switch is on a wireless WAN device.
  * @RFKILL_TYPE_GPS: switch is on a GPS device.
  * @RFKILL_TYPE_FM: switch is on a FM radio device.
+ * @RFKILL_TYPE_NFC: switch is on an NFC device.
  * @NUM_RFKILL_TYPES: number of defined rfkill types
  */
 enum rfkill_type {
@@ -48,6 +49,7 @@ enum rfkill_type {
 	RFKILL_TYPE_WWAN,
 	RFKILL_TYPE_GPS,
 	RFKILL_TYPE_FM,
+	RFKILL_TYPE_NFC,
 	NUM_RFKILL_TYPES,
 };
 
@@ -104,4 +106,4 @@ struct rfkill_event {
 
 /* and that's all userspace gets */
 
-#endif /* RFKILL_H */
+#endif /* __RFKILL_H */

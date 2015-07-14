@@ -22,7 +22,7 @@
 #define EQL_DEFAULT_SLAVE_PRIORITY 28800
 #define EQL_DEFAULT_MAX_SLAVES     4
 #define EQL_DEFAULT_MTU            576
-#define EQL_DEFAULT_RESCHED_IVAL   100
+#define EQL_DEFAULT_RESCHED_IVAL   HZ
 
 #define EQL_ENSLAVE     (SIOCDEVPRIVATE)
 #define EQL_EMANCIPATE  (SIOCDEVPRIVATE + 1)
@@ -51,4 +51,4 @@ typedef struct slaving_request {
 } slaving_request_t;
 
 
-#endif /* _LINUX_EQL_H */
+#endif /* _LINUX_IF_EQL_H */

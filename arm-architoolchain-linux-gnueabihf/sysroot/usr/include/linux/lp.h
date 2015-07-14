@@ -1,12 +1,12 @@
-#ifndef _LINUX_LP_H
-#define _LINUX_LP_H
-
 /*
  * usr/include/linux/lp.h c.1991-1992 James Wiegand
  * many modifications copyright (C) 1992 Michael K. Johnson
  * Interrupt support added 1993 Nigel Gamble
  * Removed 8255 status defines from inside __KERNEL__ Marcelo Tosatti 
  */
+#ifndef _LINUX_LP_H
+#define _LINUX_LP_H
+
 
 /*
  * Per POSIX guidelines, this module reserves the LP and lp prefixes
@@ -97,4 +97,4 @@
 #define LP_TIMEOUT_POLLED	(10 * HZ)
 
 
-#endif
+#endif /* _LINUX_LP_H */

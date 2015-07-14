@@ -55,5 +55,7 @@
 #define KEYCTL_SESSION_TO_PARENT	18	/* apply session keyring to parent process */
 #define KEYCTL_REJECT			19	/* reject a partially constructed key */
 #define KEYCTL_INSTANTIATE_IOV		20	/* instantiate a partially constructed key */
+#define KEYCTL_INVALIDATE		21	/* invalidate a key */
+#define KEYCTL_GET_PERSISTENT		22	/* get a user's persistent keyring */
 
 #endif /*  _LINUX_KEYCTL_H */

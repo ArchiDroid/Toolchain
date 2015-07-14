@@ -17,8 +17,6 @@
 #define __stub_getpmsg
 #define __stub_gtty
 #define __stub_lchmod
-#define __stub_process_vm_readv
-#define __stub_process_vm_writev
 #define __stub_putmsg
 #define __stub_putpmsg
 #define __stub_query_module

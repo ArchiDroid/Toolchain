@@ -149,4 +149,4 @@ struct robust_list_head {
   (((op & 0xf) << 28) | ((cmp & 0xf) << 24)		\
    | ((oparg & 0xfff) << 12) | (cmparg & 0xfff))
 
-#endif
+#endif /* _LINUX_FUTEX_H */

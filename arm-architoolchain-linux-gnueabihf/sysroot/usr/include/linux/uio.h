@@ -1,9 +1,3 @@
-#ifndef __LINUX_UIO_H
-#define __LINUX_UIO_H
-
-
-#include <linux/types.h>
-
 /*
  *	Berkeley style UIO structures	-	Alan Cox 1994.
  *
@@ -12,6 +6,12 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
+#ifndef __LINUX_UIO_H
+#define __LINUX_UIO_H
+
+
+#include <linux/types.h>
+
 
 struct iovec
 {
@@ -27,4 +27,4 @@ struct iovec
 #define UIO_MAXIOV	1024
 
 
-#endif
+#endif /* __LINUX_UIO_H */

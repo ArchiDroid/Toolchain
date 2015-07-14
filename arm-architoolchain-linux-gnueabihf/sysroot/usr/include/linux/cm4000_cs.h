@@ -1,7 +1,8 @@
-#ifndef	_CM4000_H_
-#define	_CM4000_H_
+#ifndef _CM4000_H_
+#define _CM4000_H_
 
 #include <linux/types.h>
+#include <linux/ioctl.h>
 
 #define	MAX_ATR			33
 
@@ -59,4 +60,4 @@ typedef struct ptsreq {
 #define	CM_BAD_CARD			0x20
 
 
-#endif	/* _CM4000_H_ */
+#endif /* _CM4000_H_ */

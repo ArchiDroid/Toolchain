@@ -85,4 +85,4 @@ struct cramfs_super {
 				| CRAMFS_FLAG_SHIFTED_ROOT_OFFSET )
 
 
-#endif
+#endif /* __CRAMFS_H */

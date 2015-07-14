@@ -58,4 +58,4 @@ struct atmtcp_control {
 
 
 
-#endif
+#endif /* LINUX_ATM_TCP_H */

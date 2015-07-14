@@ -23,14 +23,6 @@ struct timezone {
 };
 
 
-#define NFDBITS			__NFDBITS
-
-#define FD_SETSIZE		__FD_SETSIZE
-#define FD_SET(fd,fdsetp)	__FD_SET(fd,fdsetp)
-#define FD_CLR(fd,fdsetp)	__FD_CLR(fd,fdsetp)
-#define FD_ISSET(fd,fdsetp)	__FD_ISSET(fd,fdsetp)
-#define FD_ZERO(fdsetp)		__FD_ZERO(fdsetp)
-
 /*
  * Names of the interval timers, and structure
  * defining a timer setting:
@@ -62,11 +54,9 @@ struct itimerval {
 #define CLOCK_BOOTTIME			7
 #define CLOCK_REALTIME_ALARM		8
 #define CLOCK_BOOTTIME_ALARM		9
+#define CLOCK_SGI_CYCLE			10	/* Hardware specific */
+#define CLOCK_TAI			11
 
-/*
- * The IDs of various hardware clocks:
- */
-#define CLOCK_SGI_CYCLE			10
 #define MAX_CLOCKS			16
 #define CLOCKS_MASK			(CLOCK_REALTIME | CLOCK_MONOTONIC)
 #define CLOCKS_MONO			CLOCK_MONOTONIC
@@ -76,4 +66,4 @@ struct itimerval {
  */
 #define TIMER_ABSTIME			0x01
 
-#endif
+#endif /* _LINUX_TIME_H */

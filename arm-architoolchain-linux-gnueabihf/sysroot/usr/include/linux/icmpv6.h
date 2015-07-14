@@ -163,4 +163,4 @@ struct icmp6_filter {
 #define MLD2_ALL_MCR_INIT { { { 0xff,0x02,0,0,0,0,0,0,0,0,0,0,0,0,0,0x16 } } }
 
 
-#endif
+#endif /* _LINUX_ICMPV6_H */

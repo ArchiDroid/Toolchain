@@ -44,4 +44,4 @@ typedef struct kcapi_carddef {
 
 
 
-#endif				/* __KERNELCAPI_H__ */
+#endif /* __KERNELCAPI_H__ */

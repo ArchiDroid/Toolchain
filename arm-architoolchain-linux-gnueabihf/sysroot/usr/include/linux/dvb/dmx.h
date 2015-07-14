@@ -49,7 +49,7 @@ typedef enum
 } dmx_input_t;
 
 
-typedef enum
+typedef enum dmx_ts_pes
 {
 	DMX_PES_AUDIO0,
 	DMX_PES_VIDEO0,
@@ -150,4 +150,4 @@ struct dmx_stc {
 #define DMX_ADD_PID              _IOW('o', 51, __u16)
 #define DMX_REMOVE_PID           _IOW('o', 52, __u16)
 
-#endif /*_DVBDMX_H_*/
+#endif /* _DVBDMX_H_ */

@@ -1,5 +1,5 @@
-#ifndef	__HPET__
-#define	__HPET__ 1
+#ifndef __HPET__
+#define __HPET__
 
 
 
@@ -22,4 +22,4 @@ struct hpet_info {
 
 #define MAX_HPET_TBS	8		/* maximum hpet timer blocks */
 
-#endif				/* !__HPET__ */
+#endif /* __HPET__ */

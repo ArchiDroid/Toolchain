@@ -41,4 +41,4 @@ struct adfs_discrecord {
 #define ADFS_DR_SIZE_BITS	(ADFS_DR_SIZE << 3)
 
 
-#endif
+#endif /* _ADFS_FS_H */

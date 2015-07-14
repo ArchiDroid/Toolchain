@@ -52,15 +52,20 @@
  * Payload-to-userspace:
  *	A single string containing all the argv arguments separated by ' 's
  * Payload-to-kernel:
- *	None.  ('data_size' in the dm_ulog_request struct should be 0.)
+ *	A NUL-terminated string that is the name of the device that is used
+ *	as the backing store for the log data.  'dm_get_device' will be called
+ *	on this device.  ('dm_put_device' will be called on this device
+ *	automatically after calling DM_ULOG_DTR.)  If there is no device needed
+ *	for log data, 'data_size' in the dm_ulog_request struct should be 0.
  *
  * The UUID contained in the dm_ulog_request structure is the reference that
  * will be used by all request types to a specific log.  The constructor must
- * record this assotiation with instance created.
+ * record this association with the instance created.
  *
  * When the request has been processed, user-space must return the
- * dm_ulog_request to the kernel - setting the 'error' field and
- * 'data_size' appropriately.
+ * dm_ulog_request to the kernel - setting the 'error' field, filling the
+ * data field with the log device if necessary, and setting 'data_size'
+ * appropriately.
  */
 #define DM_ULOG_CTR                    1
 
@@ -196,11 +201,18 @@
  * int (*flush)(struct dm_dirty_log *log);
  *
  * Payload-to-userspace:
- *	None.
+ *	If the 'integrated_flush' directive is present in the constructor
+ *	table, the payload is as same as DM_ULOG_MARK_REGION:
+ *		uint64_t [] - region(s) to mark
+ *	else
+ *		None
  * Payload-to-kernel:
  *	None.
  *
- * No incoming or outgoing payload.  Simply flush log state to disk.
+ * If the 'integrated_flush' option was used during the creation of the
+ * log, mark region requests are carried as payload in the flush request.
+ * Piggybacking the mark requests in this way allows for fewer communications
+ * between kernel and userspace.
  *
  * When the request has been processed, user-space must return the
  * dm_ulog_request to the kernel - setting the 'error' field and clearing
@@ -377,8 +389,18 @@
  * dm_ulog_request or a change in the way requests are
  * issued/handled.  Changes are outlined here:
  *	version 1:  Initial implementation
+ *	version 2:  DM_ULOG_CTR allowed to return a string containing a
+ *	            device name that is to be registered with DM via
+ *	            'dm_get_device'.
+ *	version 3:  DM_ULOG_FLUSH is capable of carrying payload for marking
+ *		    regions.  This "integrated flush" reduces the number of
+ *		    requests between the kernel and userspace by effectively
+ *		    merging 'mark' and 'flush' requests.  A constructor table
+ *		    argument ('integrated_flush') is required to turn this
+ *		    feature on, so it is backwards compatible with older
+ *		    userspace versions.
  */
-#define DM_ULOG_REQUEST_VERSION 1
+#define DM_ULOG_REQUEST_VERSION 3
 
 struct dm_ulog_request {
 	/*

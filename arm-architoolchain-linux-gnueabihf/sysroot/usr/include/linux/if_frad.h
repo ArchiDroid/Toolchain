@@ -119,4 +119,4 @@ struct frad_conf
 #define FRAD_CLOCK_EXT		0x0000
 
 
-#endif
+#endif /* _FRAD_H_ */

@@ -24,4 +24,4 @@ struct upc_req {
 #define CODA_REQ_WRITE  0x4
 #define CODA_REQ_ABORT  0x8
 
-#endif
+#endif /* __CODA_PSDEV_H */

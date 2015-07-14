@@ -57,4 +57,4 @@ struct sonet_stats {
 
 
 
-#endif
+#endif /* LINUX_SONET_H */

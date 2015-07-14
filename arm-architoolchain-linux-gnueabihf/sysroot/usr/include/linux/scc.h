@@ -1,7 +1,7 @@
 /* $Id: scc.h,v 1.29 1997/04/02 14:56:45 jreuter Exp jreuter $ */
 
-#ifndef	_SCC_H
-#define	_SCC_H
+#ifndef _SCC_H
+#define _SCC_H
 
 
 /* selection of hardware types */
@@ -169,4 +169,4 @@ struct scc_calibrate {
 	unsigned char pattern;
 };
 
-#endif /* defined(_SCC_H) */
+#endif /* _SCC_H */

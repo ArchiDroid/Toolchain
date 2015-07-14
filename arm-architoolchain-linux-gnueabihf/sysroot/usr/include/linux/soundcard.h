@@ -1,5 +1,3 @@
-#ifndef SOUNDCARD_H
-#define SOUNDCARD_H
 /*
  * Copyright by Hannu Savolainen 1993-1997
  *
@@ -23,6 +21,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
+#ifndef SOUNDCARD_H
+#define SOUNDCARD_H
 
 
 /*
@@ -186,7 +186,7 @@ typedef struct seq_event_rec {
 #include <linux/patchkey.h>
 #undef _LINUX_PATCHKEY_H_INDIRECT
 
-#if   defined(__BYTE_ORDER)
+# if defined(__BYTE_ORDER)
 #  if __BYTE_ORDER == __BIG_ENDIAN
 #    define AFMT_S16_NE AFMT_S16_BE
 #  elif __BYTE_ORDER == __LITTLE_ENDIAN
@@ -194,7 +194,7 @@ typedef struct seq_event_rec {
 #  else
 #    error "could not determine byte order"
 #  endif
-#endif
+# endif
 
 /*
  *	Sample loading mechanism for internal synthesizers (/dev/sequencer)
@@ -1273,4 +1273,4 @@ void seqbuf_dump(void);	/* This function must be provided by programs */
 #define SEQ_WRPATCH2(patchx, len) \
 		(SEQ_DUMPBUF(), write(seqfd, (char*)(patchx), len))
 
-#endif
+#endif /* SOUNDCARD_H */

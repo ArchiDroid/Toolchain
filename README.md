@@ -4,7 +4,7 @@ This toolchain is optimized for:
 - Cortex A9 CPU (-mcpu=cortex-a9)
 - NEON FPU (-mfpu=neon)
 - Hard-float ABI (-mfloat-abi=hard)
-- Linux Kernel 3.0.X
+- Linux Kernel 4.1.X (with legacy support down to 2.6.X)
 
 This toolchain uses:
 - GNU GCC 5.1.X (latest)

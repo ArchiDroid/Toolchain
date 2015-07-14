@@ -24,4 +24,4 @@
 #define NF_BR_BROUTING		5
 #define NF_BR_NUMHOOKS		6
 
-#endif
+#endif /* __LINUX_BRIDGE_NETFILTER_H */

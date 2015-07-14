@@ -1,6 +1,8 @@
 #ifndef _LINUX_PRCTL_H
 #define _LINUX_PRCTL_H
 
+#include <linux/types.h>
+
 /* Values to pass as first argument to prctl() */
 
 #define PR_SET_PDEATHSIG  1  /* Second arg is a signal */
@@ -101,5 +103,91 @@
 # define PR_MCE_KILL_DEFAULT 2
 
 #define PR_MCE_KILL_GET 34
+
+/*
+ * Tune up process memory map specifics.
+ */
+#define PR_SET_MM		35
+# define PR_SET_MM_START_CODE		1
+# define PR_SET_MM_END_CODE		2
+# define PR_SET_MM_START_DATA		3
+# define PR_SET_MM_END_DATA		4
+# define PR_SET_MM_START_STACK		5
+# define PR_SET_MM_START_BRK		6
+# define PR_SET_MM_BRK			7
+# define PR_SET_MM_ARG_START		8
+# define PR_SET_MM_ARG_END		9
+# define PR_SET_MM_ENV_START		10
+# define PR_SET_MM_ENV_END		11
+# define PR_SET_MM_AUXV			12
+# define PR_SET_MM_EXE_FILE		13
+# define PR_SET_MM_MAP			14
+# define PR_SET_MM_MAP_SIZE		15
+
+/*
+ * This structure provides new memory descriptor
+ * map which mostly modifies /proc/pid/stat[m]
+ * output for a task. This mostly done in a
+ * sake of checkpoint/restore functionality.
+ */
+struct prctl_mm_map {
+	__u64	start_code;		/* code section bounds */
+	__u64	end_code;
+	__u64	start_data;		/* data section bounds */
+	__u64	end_data;
+	__u64	start_brk;		/* heap for brk() syscall */
+	__u64	brk;
+	__u64	start_stack;		/* stack starts at */
+	__u64	arg_start;		/* command line arguments bounds */
+	__u64	arg_end;
+	__u64	env_start;		/* environment variables bounds */
+	__u64	env_end;
+	__u64	*auxv;			/* auxiliary vector */
+	__u32	auxv_size;		/* vector size */
+	__u32	exe_fd;			/* /proc/$pid/exe link file */
+};
+
+/*
+ * Set specific pid that is allowed to ptrace the current task.
+ * A value of 0 mean "no process".
+ */
+#define PR_SET_PTRACER 0x59616d61
+# define PR_SET_PTRACER_ANY ((unsigned long)-1)
+
+#define PR_SET_CHILD_SUBREAPER	36
+#define PR_GET_CHILD_SUBREAPER	37
+
+/*
+ * If no_new_privs is set, then operations that grant new privileges (i.e.
+ * execve) will either fail or not grant them.  This affects suid/sgid,
+ * file capabilities, and LSMs.
+ *
+ * Operations that merely manipulate or drop existing privileges (setresuid,
+ * capset, etc.) will still work.  Drop those privileges if you want them gone.
+ *
+ * Changing LSM security domain is considered a new privilege.  So, for example,
+ * asking selinux for a specific new context (e.g. with runcon) will result
+ * in execve returning -EPERM.
+ *
+ * See Documentation/prctl/no_new_privs.txt for more details.
+ */
+#define PR_SET_NO_NEW_PRIVS	38
+#define PR_GET_NO_NEW_PRIVS	39
+
+#define PR_GET_TID_ADDRESS	40
+
+#define PR_SET_THP_DISABLE	41
+#define PR_GET_THP_DISABLE	42
+
+/*
+ * Tell the kernel to start/stop helping userspace manage bounds tables.
+ */
+#define PR_MPX_ENABLE_MANAGEMENT  43
+#define PR_MPX_DISABLE_MANAGEMENT 44
+
+#define PR_SET_FP_MODE		45
+#define PR_GET_FP_MODE		46
+# define PR_FP_MODE_FR		(1 << 0)	/* 64b FP registers */
+# define PR_FP_MODE_FRE		(1 << 1)	/* 32b compatibility */
 
 #endif /* _LINUX_PRCTL_H */

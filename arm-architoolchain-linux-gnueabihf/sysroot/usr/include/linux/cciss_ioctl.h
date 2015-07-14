@@ -85,4 +85,4 @@ typedef struct _LogvolInfo_struct{
 #define CCISS_GETLUNINFO   _IOR(CCISS_IOC_MAGIC, 17, LogvolInfo_struct)
 #define CCISS_BIG_PASSTHRU _IOWR(CCISS_IOC_MAGIC, 18, BIG_IOCTL_Command_struct)
 
-#endif  
+#endif /* CCISS_IOCTLH */

@@ -19,7 +19,7 @@
 
 
 /* Structure used to connect() the socket to a particular tunnel UDP
- * socket.
+ * socket over IPv4.
  */
 struct pppol2tp_addr {
 	__kernel_pid_t	pid;		/* pid that owns the fd.
@@ -32,11 +32,25 @@ struct pppol2tp_addr {
 	__u16 d_tunnel, d_session;	/* For sending outgoing packets */
 };
 
+/* Structure used to connect() the socket to a particular tunnel UDP
+ * socket over IPv6.
+ */
+struct pppol2tpin6_addr {
+	__kernel_pid_t	pid;		/* pid that owns the fd.
+					 * 0 => current */
+	int	fd;			/* FD of UDP socket to use */
+
+	__u16 s_tunnel, s_session;	/* For matching incoming packets */
+	__u16 d_tunnel, d_session;	/* For sending outgoing packets */
+
+	struct sockaddr_in6 addr;	/* IP address and port to send to */
+};
+
 /* The L2TPv3 protocol changes tunnel and session ids from 16 to 32
  * bits. So we need a different sockaddr structure.
  */
 struct pppol2tpv3_addr {
-	pid_t	pid;			/* pid that owns the fd.
+	__kernel_pid_t	pid;		/* pid that owns the fd.
 					 * 0 => current */
 	int	fd;			/* FD of UDP or IP socket to use */
 
@@ -44,6 +58,17 @@ struct pppol2tpv3_addr {
 
 	__u32 s_tunnel, s_session;	/* For matching incoming packets */
 	__u32 d_tunnel, d_session;	/* For sending outgoing packets */
+};
+
+struct pppol2tpv3in6_addr {
+	__kernel_pid_t	pid;		/* pid that owns the fd.
+					 * 0 => current */
+	int	fd;			/* FD of UDP or IP socket to use */
+
+	__u32 s_tunnel, s_session;	/* For matching incoming packets */
+	__u32 d_tunnel, d_session;	/* For sending outgoing packets */
+
+	struct sockaddr_in6 addr;	/* IP address and port to send to */
 };
 
 /* Socket options:
@@ -76,4 +101,4 @@ enum {
 
 
 
-#endif
+#endif /* __LINUX_IF_PPPOL2TP_H */

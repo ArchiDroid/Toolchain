@@ -440,4 +440,4 @@
 #define NR_BRL		11
 
 #define MAX_DIACR	256
-#endif
+#endif /* __LINUX_KEYBOARD_H */

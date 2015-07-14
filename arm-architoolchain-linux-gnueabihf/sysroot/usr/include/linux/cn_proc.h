@@ -53,8 +53,12 @@ struct proc_event {
 		PROC_EVENT_UID  = 0x00000004,
 		PROC_EVENT_GID  = 0x00000040,
 		PROC_EVENT_SID  = 0x00000080,
+		PROC_EVENT_PTRACE = 0x00000100,
+		PROC_EVENT_COMM = 0x00000200,
 		/* "next" should be 0x00000400 */
-		/* "last" is the last process event: exit */
+		/* "last" is the last process event: exit,
+		 * while "next to last" is coredumping event */
+		PROC_EVENT_COREDUMP = 0x40000000,
 		PROC_EVENT_EXIT = 0x80000000
 	} what;
 	__u32 cpu;
@@ -95,12 +99,31 @@ struct proc_event {
 			__kernel_pid_t process_tgid;
 		} sid;
 
+		struct ptrace_proc_event {
+			__kernel_pid_t process_pid;
+			__kernel_pid_t process_tgid;
+			__kernel_pid_t tracer_pid;
+			__kernel_pid_t tracer_tgid;
+		} ptrace;
+
+		struct comm_proc_event {
+			__kernel_pid_t process_pid;
+			__kernel_pid_t process_tgid;
+			char           comm[16];
+		} comm;
+
+		struct coredump_proc_event {
+			__kernel_pid_t process_pid;
+			__kernel_pid_t process_tgid;
+		} coredump;
+
 		struct exit_proc_event {
 			__kernel_pid_t process_pid;
 			__kernel_pid_t process_tgid;
 			__u32 exit_code, exit_signal;
 		} exit;
+
 	} event_data;
 };
 
-#endif	/* CN_PROC_H */
+#endif /* CN_PROC_H */

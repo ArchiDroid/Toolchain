@@ -1,6 +1,3 @@
-#ifndef __SOUND_SB16_CSP_H
-#define __SOUND_SB16_CSP_H
-
 /*
  *  Copyright (c) 1999 by Uros Bizjak <uros@kss-loka.si>
  *                        Takashi Iwai <tiwai@suse.de>
@@ -22,6 +19,9 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  *
  */
+#ifndef __SOUND_SB16_CSP_H
+#define __SOUND_SB16_CSP_H
+
 
 /* CSP modes */
 #define SNDRV_SB_CSP_MODE_NONE		0x00
@@ -119,4 +119,4 @@ struct snd_sb_csp_info {
 #define SNDRV_SB_CSP_IOCTL_RESTART	_IO('H', 0x16)
 
 
-#endif /* __SOUND_SB16_CSP */
+#endif /* __SOUND_SB16_CSP_H */

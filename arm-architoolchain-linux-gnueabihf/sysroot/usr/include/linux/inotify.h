@@ -71,4 +71,4 @@ struct inotify_event {
 #define IN_NONBLOCK O_NONBLOCK
 
 
-#endif	/* _LINUX_INOTIFY_H */
+#endif /* _LINUX_INOTIFY_H */

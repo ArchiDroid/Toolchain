@@ -12,9 +12,7 @@
 
 #ifndef __LINUX_BRIDGE_EFF_H
 #define __LINUX_BRIDGE_EFF_H
-#include <linux/if.h>
 #include <linux/netfilter_bridge.h>
-#include <linux/if_ether.h>
 
 #define EBT_TABLE_MAXNAMELEN 32
 #define EBT_CHAIN_MAXNAMELEN EBT_TABLE_MAXNAMELEN
@@ -265,4 +263,4 @@ struct ebt_entry {
 	__ret;                                              \
 })
 
-#endif
+#endif /* __LINUX_BRIDGE_EFF_H */

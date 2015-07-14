@@ -17,6 +17,7 @@
 #include <linux/types.h>
 #include <sys/ioctl.h>
 
+
 /* This file describes autofs v3 */
 #define AUTOFS_PROTO_VERSION	3
 

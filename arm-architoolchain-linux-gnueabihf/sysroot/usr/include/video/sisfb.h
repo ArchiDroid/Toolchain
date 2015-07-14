@@ -206,4 +206,4 @@ struct sis_memreq {
 /**********************************************/
 
 
-#endif
+#endif /* _LINUX_SISFB_H_ */

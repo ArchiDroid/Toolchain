@@ -14,6 +14,8 @@
 #define _LINUX_IF_BRIDGE_H
 
 #include <linux/types.h>
+#include <linux/if_ether.h>
+#include <linux/in6.h>
 
 #define SYSFS_BRIDGE_ATTR	"bridge"
 #define SYSFS_BRIDGE_FDB	"brforward"
@@ -88,7 +90,7 @@ struct __port_info {
 };
 
 struct __fdb_entry {
-	__u8 mac_addr[6];
+	__u8 mac_addr[ETH_ALEN];
 	__u8 port_no;
 	__u8 is_local;
 	__u32 ageing_timer_value;
@@ -97,5 +99,103 @@ struct __fdb_entry {
 	__u16 unused;
 };
 
+/* Bridge Flags */
+#define BRIDGE_FLAGS_MASTER	1	/* Bridge command to/from master */
+#define BRIDGE_FLAGS_SELF	2	/* Bridge command to/from lowerdev */
 
-#endif
+#define BRIDGE_MODE_VEB		0	/* Default loopback mode */
+#define BRIDGE_MODE_VEPA	1	/* 802.1Qbg defined VEPA mode */
+#define BRIDGE_MODE_UNDEF	0xFFFF  /* mode undefined */
+
+/* Bridge management nested attributes
+ * [IFLA_AF_SPEC] = {
+ *     [IFLA_BRIDGE_FLAGS]
+ *     [IFLA_BRIDGE_MODE]
+ *     [IFLA_BRIDGE_VLAN_INFO]
+ * }
+ */
+enum {
+	IFLA_BRIDGE_FLAGS,
+	IFLA_BRIDGE_MODE,
+	IFLA_BRIDGE_VLAN_INFO,
+	__IFLA_BRIDGE_MAX,
+};
+#define IFLA_BRIDGE_MAX (__IFLA_BRIDGE_MAX - 1)
+
+#define BRIDGE_VLAN_INFO_MASTER	(1<<0)	/* Operate on Bridge device as well */
+#define BRIDGE_VLAN_INFO_PVID	(1<<1)	/* VLAN is PVID, ingress untagged */
+#define BRIDGE_VLAN_INFO_UNTAGGED	(1<<2)	/* VLAN egresses untagged */
+#define BRIDGE_VLAN_INFO_RANGE_BEGIN	(1<<3) /* VLAN is start of vlan range */
+#define BRIDGE_VLAN_INFO_RANGE_END	(1<<4) /* VLAN is end of vlan range */
+
+struct bridge_vlan_info {
+	__u16 flags;
+	__u16 vid;
+};
+
+/* Bridge multicast database attributes
+ * [MDBA_MDB] = {
+ *     [MDBA_MDB_ENTRY] = {
+ *         [MDBA_MDB_ENTRY_INFO]
+ *     }
+ * }
+ * [MDBA_ROUTER] = {
+ *    [MDBA_ROUTER_PORT]
+ * }
+ */
+enum {
+	MDBA_UNSPEC,
+	MDBA_MDB,
+	MDBA_ROUTER,
+	__MDBA_MAX,
+};
+#define MDBA_MAX (__MDBA_MAX - 1)
+
+enum {
+	MDBA_MDB_UNSPEC,
+	MDBA_MDB_ENTRY,
+	__MDBA_MDB_MAX,
+};
+#define MDBA_MDB_MAX (__MDBA_MDB_MAX - 1)
+
+enum {
+	MDBA_MDB_ENTRY_UNSPEC,
+	MDBA_MDB_ENTRY_INFO,
+	__MDBA_MDB_ENTRY_MAX,
+};
+#define MDBA_MDB_ENTRY_MAX (__MDBA_MDB_ENTRY_MAX - 1)
+
+enum {
+	MDBA_ROUTER_UNSPEC,
+	MDBA_ROUTER_PORT,
+	__MDBA_ROUTER_MAX,
+};
+#define MDBA_ROUTER_MAX (__MDBA_ROUTER_MAX - 1)
+
+struct br_port_msg {
+	__u8  family;
+	__u32 ifindex;
+};
+
+struct br_mdb_entry {
+	__u32 ifindex;
+#define MDB_TEMPORARY 0
+#define MDB_PERMANENT 1
+	__u8 state;
+	struct {
+		union {
+			__be32	ip4;
+			struct in6_addr ip6;
+		} u;
+		__be16		proto;
+	} addr;
+};
+
+enum {
+	MDBA_SET_ENTRY_UNSPEC,
+	MDBA_SET_ENTRY,
+	__MDBA_SET_ENTRY_MAX,
+};
+#define MDBA_SET_ENTRY_MAX (__MDBA_SET_ENTRY_MAX - 1)
+
+#endif /* _LINUX_IF_BRIDGE_H */

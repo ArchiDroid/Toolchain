@@ -20,4 +20,4 @@ struct xt_physdev_info {
 	__u8 bitmask;
 };
 
-#endif /*_XT_PHYSDEV_H*/
+#endif /* _XT_PHYSDEV_H */

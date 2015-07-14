@@ -1,5 +1,5 @@
 /* Generated automatically by the program 'build/genpreds'
-   from the machine description file '/home/archi/architoolchain/.build/src/gcc-5.1.0/gcc/config/arm/arm.md'.  */
+   from the machine description file '/home/archi/ct/.build/src/gcc-5.1.0/gcc/config/arm/arm.md'.  */
 
 #ifndef GCC_TM_PREDS_H
 #define GCC_TM_PREDS_H

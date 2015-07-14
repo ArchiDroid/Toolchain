@@ -212,4 +212,4 @@ struct atm_cirange {
 
 
 
-#endif
+#endif /* LINUX_ATMDEV_H */

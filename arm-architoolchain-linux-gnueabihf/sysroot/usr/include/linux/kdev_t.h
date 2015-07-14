@@ -8,4 +8,4 @@ from the kernel sources. These must be the externally visible ones.
 #define MAJOR(dev)	((dev)>>8)
 #define MINOR(dev)	((dev) & 0xff)
 #define MKDEV(ma,mi)	((ma)<<8 | (mi))
-#endif
+#endif /* _LINUX_KDEV_T_H */

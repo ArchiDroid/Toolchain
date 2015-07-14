@@ -54,4 +54,4 @@ typedef enum {
 
 #define __SO_ACCEPTCON	(1 << 16)	/* performed a listen		*/
 
-#endif	/* _LINUX_NET_H */
+#endif /* _LINUX_NET_H */

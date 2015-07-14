@@ -1,7 +1,7 @@
 /* linux/caif_socket.h
  * CAIF Definitions for CAIF socket and network layer
  * Copyright (C) ST-Ericsson AB 2010
- * Author:	 Sjur Brendeland/ sjur.brandeland@stericsson.com
+ * Author:	 Sjur Brendeland
  * License terms: GNU General Public License (GPL) version 2
  */
 
@@ -9,8 +9,7 @@
 #define _LINUX_CAIF_SOCKET_H
 
 #include <linux/types.h>
-
-#include <sys/socket.h>
+#include <linux/socket.h>
 
 /**
  * enum caif_link_selector -    Physical Link Selection.
@@ -140,7 +139,7 @@ enum caif_debug_service {
  * CAIF Channel. It defines the service to connect to on the modem.
  */
 struct sockaddr_caif {
-	sa_family_t  family;
+	__kernel_sa_family_t  family;
 	union {
 		struct {
 			__u8  type;		/* type: enum caif_at_type */

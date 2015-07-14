@@ -10,6 +10,9 @@
 #ifndef LIBC_BIONIC
 # define LIBC_BIONIC 3
 #endif
+#ifndef LIBC_MUSL
+# define LIBC_MUSL 4
+#endif
 #ifndef DEFAULT_LIBC
 # define DEFAULT_LIBC LIBC_GLIBC
 #endif

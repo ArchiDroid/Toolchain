@@ -2,6 +2,7 @@
 #define _XT_CONNLIMIT_H
 
 #include <linux/types.h>
+#include <linux/netfilter.h>
 
 struct xt_connlimit_data;
 
@@ -19,13 +20,8 @@ struct xt_connlimit_info {
 		};
 	};
 	unsigned int limit;
-	union {
-		/* revision 0 */
-		unsigned int inverse;
-
-		/* revision 1 */
-		__u32 flags;
-	};
+	/* revision 1 */
+	__u32 flags;
 
 	/* Used internally by the kernel */
 	struct xt_connlimit_data *data __attribute__((aligned(8)));

@@ -1,12 +1,8 @@
-#ifndef _HIDDEV_H
-#define _HIDDEV_H
-
 /*
  *  Copyright (c) 1999-2000 Vojtech Pavlik
  *
  *  Sponsored by SuSE
  */
-
 /*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +22,10 @@
  * e-mail - mail your message to <vojtech@suse.cz>, or by paper mail:
  * Vojtech Pavlik, Ucitelska 1576, Prague 8, 182 00 Czech Republic
  */
+#ifndef _HIDDEV_H
+#define _HIDDEV_H
+
+
 
 #include <linux/types.h>
 
@@ -209,4 +209,4 @@ struct hiddev_usage_ref_multi {
  */
 
 
-#endif
+#endif /* _HIDDEV_H */

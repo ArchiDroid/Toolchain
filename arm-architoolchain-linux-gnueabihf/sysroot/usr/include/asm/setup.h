@@ -184,4 +184,4 @@ struct tagtable {
 	for (t = base; t->hdr.size; t = tag_next(t))
 
 
-#endif
+#endif /* __ASMARM_SETUP_H */

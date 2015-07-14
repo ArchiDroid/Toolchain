@@ -26,4 +26,4 @@
 /* Flag for Default ACL entries */
 #define NFS_ACL_DEFAULT		0x1000
 
-#endif  /* __LINUX_NFSACL_H */
+#endif /* __LINUX_NFSACL_H */

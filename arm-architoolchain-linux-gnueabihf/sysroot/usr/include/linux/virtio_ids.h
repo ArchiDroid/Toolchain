@@ -32,8 +32,13 @@
 #define VIRTIO_ID_NET		1 /* virtio net */
 #define VIRTIO_ID_BLOCK		2 /* virtio block */
 #define VIRTIO_ID_CONSOLE	3 /* virtio console */
-#define VIRTIO_ID_RNG		4 /* virtio ring */
+#define VIRTIO_ID_RNG		4 /* virtio rng */
 #define VIRTIO_ID_BALLOON	5 /* virtio balloon */
+#define VIRTIO_ID_RPMSG		7 /* virtio remote processor messaging */
+#define VIRTIO_ID_SCSI		8 /* virtio scsi */
 #define VIRTIO_ID_9P		9 /* 9p virtio console */
+#define VIRTIO_ID_RPROC_SERIAL 11 /* virtio remoteproc serial link */
+#define VIRTIO_ID_CAIF	       12 /* Virtio caif */
+#define VIRTIO_ID_INPUT        18 /* virtio input */
 
 #endif /* _LINUX_VIRTIO_IDS_H */

@@ -13,4 +13,4 @@
 #define NVRAM_OFFSET(x)   ((x)-NVRAM_FIRST_BYTE)
 
 
-#endif  /* _LINUX_NVRAM_H */
+#endif /* _LINUX_NVRAM_H */

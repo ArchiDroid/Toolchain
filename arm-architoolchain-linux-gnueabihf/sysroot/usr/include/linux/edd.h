@@ -188,4 +188,4 @@ struct edd {
 
 #endif				/*!__ASSEMBLY__ */
 
-#endif				/* _LINUX_EDD_H */
+#endif /* _LINUX_EDD_H */

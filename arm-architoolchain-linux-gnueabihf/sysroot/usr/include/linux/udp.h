@@ -29,6 +29,8 @@ struct udphdr {
 /* UDP socket options */
 #define UDP_CORK	1	/* Never send partially complete segments */
 #define UDP_ENCAP	100	/* Set the socket to accept encapsulated packets */
+#define UDP_NO_CHECK6_TX 101	/* Disable sending checksum for UDP6X */
+#define UDP_NO_CHECK6_RX 102	/* Disable accpeting checksum for UDP6 */
 
 /* UDP encapsulation types */
 #define UDP_ENCAP_ESPINUDP_NON_IKE	1 /* draft-ietf-ipsec-nat-t-ike-00/01 */
@@ -36,4 +38,4 @@ struct udphdr {
 #define UDP_ENCAP_L2TPINUDP	3 /* rfc2661 */
 
 
-#endif	/* _LINUX_UDP_H */
+#endif /* _LINUX_UDP_H */

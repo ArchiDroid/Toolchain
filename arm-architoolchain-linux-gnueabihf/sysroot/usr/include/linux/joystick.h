@@ -1,12 +1,8 @@
-#ifndef _LINUX_JOYSTICK_H
-#define _LINUX_JOYSTICK_H
-
 /*
  *  Copyright (C) 1996-2000 Vojtech Pavlik
  *
  *  Sponsored by SuSE
  */
-
 /*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +22,10 @@
  * e-mail - mail your message to <vojtech@suse.cz>, or by paper mail:
  * Vojtech Pavlik, Ucitelska 1576, Prague 8, 182 00 Czech Republic
  */
+#ifndef _LINUX_JOYSTICK_H
+#define _LINUX_JOYSTICK_H
+
+
 
 #include <linux/types.h>
 #include <linux/input.h>

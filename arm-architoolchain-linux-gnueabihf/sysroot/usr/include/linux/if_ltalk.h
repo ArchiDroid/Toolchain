@@ -6,4 +6,4 @@
 #define LTALK_ALEN		1
 
 
-#endif
+#endif /* __LINUX_LTALK_H */

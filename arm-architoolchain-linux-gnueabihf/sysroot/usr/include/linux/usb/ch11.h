@@ -11,6 +11,17 @@
 
 #include <linux/types.h>	/* __u8 etc */
 
+/* This is arbitrary.
+ * From USB 2.0 spec Table 11-13, offset 7, a hub can
+ * have up to 255 ports. The most yet reported is 10.
+ *
+ * Current Wireless USB host hardware (Intel i1480 for example) allows
+ * up to 22 devices to connect. Upcoming hardware might raise that
+ * limit. Because the arrays need to add a bit for hub status data, we
+ * use 31, so plus one evens out to four bytes.
+ */
+#define USB_MAXCHILDREN		31
+
 /*
  * Hub request types
  */
@@ -26,7 +37,6 @@
 #define HUB_RESET_TT		9
 #define HUB_GET_TT_STATE	10
 #define HUB_STOP_TT		11
-#define HUB_SET_DEPTH		12
 
 /*
  * Hub class additional requests defined by USB 3.0 spec
@@ -76,6 +86,13 @@
 #define USB_PORT_FEAT_BH_PORT_RESET		28
 #define USB_PORT_FEAT_C_BH_PORT_RESET		29
 #define USB_PORT_FEAT_FORCE_LINKPM_ACCEPT	30
+
+#define USB_PORT_LPM_TIMEOUT(p)			(((p) & 0xff) << 8)
+
+/* USB 3.0 hub remote wake mask bits, see table 10-14 */
+#define USB_PORT_FEAT_REMOTE_WAKE_CONNECT	(1 << 8)
+#define USB_PORT_FEAT_REMOTE_WAKE_DISCONNECT	(1 << 9)
+#define USB_PORT_FEAT_REMOTE_WAKE_OVER_CURRENT	(1 << 10)
 
 /*
  * Hub Status and Hub Change results
@@ -159,11 +176,20 @@ struct usb_port_status {
  * wHubCharacteristics (masks)
  * See USB 2.0 spec Table 11-13, offset 3
  */
-#define HUB_CHAR_LPSM		0x0003 /* D1 .. D0 */
-#define HUB_CHAR_COMPOUND	0x0004 /* D2       */
-#define HUB_CHAR_OCPM		0x0018 /* D4 .. D3 */
-#define HUB_CHAR_TTTT           0x0060 /* D6 .. D5 */
-#define HUB_CHAR_PORTIND        0x0080 /* D7       */
+#define HUB_CHAR_LPSM		0x0003 /* Logical Power Switching Mode mask */
+#define HUB_CHAR_COMMON_LPSM	0x0000 /* All ports power control at once */
+#define HUB_CHAR_INDV_PORT_LPSM	0x0001 /* per-port power control */
+#define HUB_CHAR_NO_LPSM	0x0002 /* no power switching */
+
+#define HUB_CHAR_COMPOUND	0x0004 /* hub is part of a compound device */
+
+#define HUB_CHAR_OCPM		0x0018 /* Over-Current Protection Mode mask */
+#define HUB_CHAR_COMMON_OCPM	0x0000 /* All ports Over-Current reporting */
+#define HUB_CHAR_INDV_PORT_OCPM	0x0008 /* per-port Over-current reporting */
+#define HUB_CHAR_NO_OCPM	0x0010 /* No Over-current Protection support */
+
+#define HUB_CHAR_TTTT		0x0060 /* TT Think Time mask */
+#define HUB_CHAR_PORTIND	0x0080 /* per-port indicators (LEDs) */
 
 struct usb_hub_status {
 	__le16 wHubStatus;
@@ -192,6 +218,17 @@ struct usb_hub_status {
 #define USB_DT_HUB_NONVAR_SIZE		7
 #define USB_DT_SS_HUB_SIZE              12
 
+/*
+ * Hub Device descriptor
+ * USB Hub class device protocols
+ */
+
+#define USB_HUB_PR_FS		0 /* Full speed hub */
+#define USB_HUB_PR_HS_NO_TT	0 /* Hi-speed hub without TT */
+#define USB_HUB_PR_HS_SINGLE_TT	1 /* Hi-speed hub with single TT */
+#define USB_HUB_PR_HS_MULTI_TT	2 /* Hi-speed hub with multiple TT */
+#define USB_HUB_PR_SS		3 /* Super speed hub */
+
 struct usb_hub_descriptor {
 	__u8  bDescLength;
 	__u8  bDescriptorType;
@@ -210,8 +247,8 @@ struct usb_hub_descriptor {
 
 		struct {
 			__u8 bHubHdrDecLat;
-			__u16 wHubDelay;
-			__u16 DeviceRemovable;
+			__le16 wHubDelay;
+			__le16 DeviceRemovable;
 		}  __attribute__ ((packed)) ss;
 	} u;
 } __attribute__ ((packed));
