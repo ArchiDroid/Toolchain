@@ -27,11 +27,13 @@
 
 set -eu
 
+COUNT="5" # arm-architoolchain-linux-gnueabihf-
+
 cd "$(dirname "$0")"
 if [[ -d "bin" ]]; then
 	cd "bin"
 	while read BINARY; do
-		TOOL="arm-eabi-$(awk -F '-' '{print $NF}' < <(echo "$BINARY"))"
+		TOOL="arm-eabi-$(cut -d '-' -f ${COUNT}- < <(echo "$BINARY"))"
 		if [[ ! -e "$TOOL" ]]; then
 			ln -s "$BINARY" "$TOOL"
 			echo "Linked: $TOOL"
