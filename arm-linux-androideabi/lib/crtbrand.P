@@ -1,0 +1,9 @@
+out/target/product/pandaboard/obj/lib/crtbrand.s: \
+ bionic/libc/bionic/crtbrand.c bionic/libc/include/stdint.h \
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h \
+ bionic/libc/include/sys/_types.h \
+ bionic/libc/arch-arm/include/machine/_types.h
+ bionic/libc/bionic/crtbrand.c bionic/libc/include/stdint.h :
+ /tmp/android-toolchain-eabi/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h :
+ bionic/libc/include/sys/_types.h :
+ bionic/libc/arch-arm/include/machine/_types.h :
