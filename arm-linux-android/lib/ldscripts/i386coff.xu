@@ -1,0 +1,33 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-i386")
+SECTIONS
+{
+  .text  : {
+    *(.text)
+    ;
+  }
+  .data  : {
+    *(.data)
+    ;
+  }
+  .bss  :
+  {
+    *(.bss)
+    *(COMMON)
+    ;
+  }
+   .init : { *(.init) }
+   .fini : { *(.fini) }
+  .stab  0  :
+  {
+    [ .stab ]
+  }
+  .stabstr  0  :
+  {
+    [ .stabstr ]
+  }
+}

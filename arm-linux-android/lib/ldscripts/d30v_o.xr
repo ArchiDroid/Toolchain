@@ -1,0 +1,151 @@
+/* Script for ld -r: link without relocation */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("elf32-d30v")
+OUTPUT_ARCH(d30v)
+MEMORY
+{
+  text (x) : ORIGIN = 0x00000000, LENGTH = 64K
+  data (rw) : ORIGIN = 0x20000000, LENGTH = 32K
+  emem  : ORIGIN = 0x80000000, LENGTH = 8M
+  eit			   : ORIGIN = 0xfffff020,  LENGTH = 320
+}
+SECTIONS
+{
+  /* Read-only sections, merged into text segment: */
+  .hash			0 : { *(.hash) }
+  .dynsym		0 : { *(.dynsym) }
+  .dynstr		0 : { *(.dynstr) }
+  .gnu.version		0 : { *(.gnu.version) }
+  .gnu.version_d	0 : { *(.gnu.version_d) }
+  .gnu.version_r	0 : { *(.gnu.version_r) }
+  .rel.text		0 : { *(.rel.text) *(.rel.gnu.linkonce.t*) }
+  .rela.text		0 : { *(.rela.text) *(.rela.gnu.linkonce.t*) }
+  .rel.data		0 : { *(.rel.data) *(.rel.gnu.linkonce.d*) }
+  .rela.data		0 : { *(.rela.data) *(.rela.gnu.linkonce.d*) }
+  .rel.rodata		0 : { *(.rel.rodata) *(.rel.gnu.linkonce.r*) }
+  .rela.rodata		0 : { *(.rela.rodata) *(.rela.gnu.linkonce.r*) }
+  .rel.stext		0 : { *(.rel.stest) }
+  .rela.stext		0 : { *(.rela.stest) }
+  .rel.etext		0 : { *(.rel.etest) }
+  .rela.etext		0 : { *(.rela.etest) }
+  .rel.sdata		0 : { *(.rel.sdata) }
+  .rela.sdata		0 : { *(.rela.sdata) }
+  .rel.edata		0 : { *(.rel.edata) }
+  .rela.edata		0 : { *(.rela.edata) }
+  .rel.eit_v		0 : { *(.rel.eit_v) }
+  .rela.eit_v		0 : { *(.rela.eit_v) }
+  .rel.sbss		0 : { *(.rel.sbss) }
+  .rela.sbss		0 : { *(.rela.sbss) }
+  .rel.ebss		0 : { *(.rel.ebss) }
+  .rela.ebss		0 : { *(.rela.ebss) }
+  .rel.srodata		0 : { *(.rel.srodata) }
+  .rela.srodata		0 : { *(.rela.srodata) }
+  .rel.erodata		0 : { *(.rel.erodata) }
+  .rela.erodata		0 : { *(.rela.erodata) }
+  .rel.got		0 : { *(.rel.got) }
+  .rela.got		0 : { *(.rela.got) }
+  .rel.ctors		0 : { *(.rel.ctors) }
+  .rela.ctors		0 : { *(.rela.ctors) }
+  .rel.dtors		0 : { *(.rel.dtors) }
+  .rela.dtors		0 : { *(.rela.dtors) }
+  .rel.init		0 : { *(.rel.init) }
+  .rela.init		0 : { *(.rela.init) }
+  .rel.fini		0 : { *(.rel.fini) }
+  .rela.fini		0 : { *(.rela.fini) }
+  .rel.bss		0 : { *(.rel.bss) }
+  .rela.bss		0 : { *(.rela.bss) }
+  .rel.plt		0 : { *(.rel.plt) }
+  .rela.plt		0 : { *(.rela.plt) }
+  .init			0 : { *(.init) } =0
+  /* Internal text space */
+  .stext	0 : { *(.stext) }
+  /* Internal text space or external memory */
+  .text :
+  {
+    *(.text)
+    *(.gnu.linkonce.t*)
+    *(SORT_NONE(.init))
+    *(SORT_NONE(.fini))
+  }
+  /* Internal data space */
+  .srodata	0 : { *(.srodata) }
+  .sdata	0 : { *(.sdata) }
+  /* Internal data space or external memory */
+  .rodata	0 : { *(.rodata) }
+  /* C++ exception support.  */
+  .eh_frame	0 : { KEEP (*(.eh_frame)) }
+  .gcc_except_table 0 : { *(.gcc_except_table) }
+  /* Java class registration support.  */
+  .jcr		0 : { KEEP (*(.jcr)) }
+  .data		0 :
+  {
+    *(.data)
+    *(.gnu.linkonce.d*)
+  }
+  /* External memory */
+  .etext	0 :
+  {
+    *(.etext)
+  }
+  .erodata	0 : { *(.erodata) }
+  .edata	0 : { *(.edata) }
+  .sbss		0 :
+  {
+    *(.sbss)
+  }
+  .ebss		0 :
+  {
+    *(.ebss)
+  }
+  .bss		0 :
+  {
+    *(.bss)
+    *(COMMON)
+  }
+  .eit_v	0 :
+  {
+    *(.eit_v)
+  }
+  /* Stabs debugging sections.  */
+  .stab		 0 : { *(.stab) }
+  .stabstr	 0 : { *(.stabstr) }
+  .stab.excl	 0 : { *(.stab.excl) }
+  .stab.exclstr	 0 : { *(.stab.exclstr) }
+  .stab.index	 0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment	 0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+  PROVIDE (__stack = 0x20008000);
+}

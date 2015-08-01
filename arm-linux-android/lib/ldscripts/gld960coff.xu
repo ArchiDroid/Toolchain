@@ -1,0 +1,38 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+SECTIONS
+{
+    .text :
+    {
+	 CREATE_OBJECT_SYMBOLS
+	*(.text)
+	;
+
+	___CTOR_LIST__ = .;
+	LONG((___CTOR_END__ - ___CTOR_LIST__) / 4 - 2)
+	*(.ctors)
+	LONG(0)
+	___CTOR_END__ = .;
+	___DTOR_LIST__ = .;
+	LONG((___DTOR_END__ - ___DTOR_LIST__) / 4 - 2)
+	*(.dtors)
+	LONG(0)
+	___DTOR_END__ = .;
+    }
+    .data :
+    {
+ 	*(.data)
+	CONSTRUCTORS
+	;
+    }
+    .bss :
+    {
+	;
+	*(.bss)
+	*(COMMON)
+	;
+    }
+}

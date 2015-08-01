@@ -1,0 +1,44 @@
+/* Script for -n: mix text and data on same page */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-i860")
+PROVIDE (__stack = 0);
+SECTIONS
+{
+  .text  0x1000000 : {
+    *(.text)
+     . = ALIGN(4);
+     etext  =  .;
+     __CTOR_LIST__ = .;
+     LONG((__CTOR_END__ - __CTOR_LIST__) / 4 - 2)
+     *(.ctors)
+     LONG(0)
+     __CTOR_END__ = .;
+     __DTOR_LIST__ = .;
+     LONG((__DTOR_END__ - __DTOR_LIST__) / 4 - 2)
+     *(.dtors)
+     LONG(0)
+     __DTOR_END__ = .;
+  }
+  .data : {
+    *(.data)
+     edata  =  .;
+  }
+  .bss : {
+     __bss_start = .;
+    *(.bss)
+    *(COMMON)
+      end = ALIGN(0x8);
+      _end = ALIGN(0x8);
+  }
+  .stab  0 (NOLOAD) :
+  {
+    [ .stab ]
+  }
+  .stabstr  0 (NOLOAD) :
+  {
+    [ .stabstr ]
+  }
+}

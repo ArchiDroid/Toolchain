@@ -1,0 +1,48 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-z8k")
+OUTPUT_ARCH("z8001")
+SECTIONS
+{
+.text   :
+	{
+	  *(.text)
+	  *(.strings)
+	  *(.rdata)
+	}
+.ctors    :
+	{
+	   ___ctors = . ;
+	  *(.ctors);
+	   ___ctors_end = . ;
+	  ___dtors = . ;
+	  *(.dtors);
+	   ___dtors_end = . ;
+	}
+.data   :
+	{
+	   *(.data)
+	}
+.bss   :
+	{
+
+	  *(.bss);
+	  *(COMMON);
+
+	}
+.heap   :
+	{
+
+
+
+	}
+.stack   :
+	{
+
+	  *(.stack)
+
+	}
+}

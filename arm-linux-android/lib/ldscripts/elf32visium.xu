@@ -1,0 +1,117 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+OUTPUT_FORMAT("elf32-visium")
+ENTRY(__start)
+/* Start and end of main stack. Assumes 256K of RAM.  */
+/* End of heap.  */
+MEMORY
+{
+  init    : ORIGIN = 0x00000000, LENGTH = 0x0003fffc
+  scr     : ORIGIN = 0x0003fffc, LENGTH = 0x00000004
+  rom     : ORIGIN = 0x00044000, LENGTH = 0x1ffbc000
+  ram     : ORIGIN = 0xe0000000, LENGTH = 0x10000000
+  saferam : ORIGIN = 0xf0000000, LENGTH = 0x10000000
+}
+SECTIONS
+{
+  .init 0 : {
+    KEEP (*(.init))
+    KEEP (*(.fini))
+  }
+  .text 0 : {
+    *(.text)
+  }
+  .ctors 0 : {
+     . = ALIGN(4);
+     __CTOR_LIST__ = .;
+    /* gcc uses crtbegin.o to find the start of
+       the constructors, so we make sure it is
+       first.  Because this is a wildcard, it
+       doesn't matter if the user does not
+       actually link against crtbegin.o; the
+       linker won't look for a file to match a
+       wildcard.  The wildcard also means that it
+       doesn't matter which directory crtbegin.o
+       is in.  */
+    KEEP (*crtbegin*.o(.ctors))
+    /* We don't want to include the .ctor section from
+       from the crtend.o file until after the sorted ctors.
+       The .ctor section from the crtend file contains the
+       end of ctors marker and it must be last.  */
+    KEEP (*(EXCLUDE_FILE (*crtend*.o) .ctors))
+    KEEP (*(SORT(.ctors.*)))
+    KEEP (*(.ctors))
+     __CTOR_END__ = .;
+  }
+  .dtors 0 : {
+     __DTOR_LIST__ = .;
+    KEEP (*crtbegin*.o(.dtors))
+    KEEP (*(EXCLUDE_FILE (*crtend*.o) .dtors))
+    KEEP (*(SORT(.dtors.*)))
+    KEEP (*(.dtors))
+     __DTOR_END__ = .;
+  }
+  .rodata 0 : {
+    *(.rdata)
+    *(.rodata)
+  }
+  .eh_frame 0 :
+  {
+    *(.eh_frame)
+  }
+  .gcc_except_table 0 : { *(.gcc_except_table) }
+  .jcr 0 : { *(.jcr) }
+  .data 0 : {
+    *(.data)
+  }
+  .bss 0 : {
+    *(.bss)
+    *(COMMON)
+  }
+  saferam 0 : {
+    *(saferam)
+  }
+  /* Stabs debugging sections.  */
+  .stab          0 : { *(.stab) }
+  .stabstr       0 : { *(.stabstr) }
+  .stab.excl     0 : { *(.stab.excl) }
+  .stab.exclstr  0 : { *(.stab.exclstr) }
+  .stab.index    0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment       0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+}
+/* Provide a default address for the simulated file-I/O device.  */
+PROVIDE (_sim_fileio_register = 0x2fff0000);
+/* Provide a default address for the simulated command line device.  */
+PROVIDE (_sim_cmdline_header = 0x2ffe0000);
+/* Provide a default address for the simulated 1 MHz clock.  */
+PROVIDE (_sim_clock = 0x20002100);

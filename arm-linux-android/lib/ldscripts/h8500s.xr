@@ -1,0 +1,47 @@
+/* Script for ld -r: link without relocation */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-h8500")
+OUTPUT_ARCH(h8500)
+/* Code and data, both 64k */
+SECTIONS
+{
+.text  :
+	{
+	  *(.text)
+
+	}
+.rdata   :
+	{
+	  *(.rdata);
+	  *(.strings)
+
+	}
+.data   :
+	{
+	  *(.data)
+
+	}
+.bss   :
+	{
+
+	  *(.bss)
+	  *(COMMON)
+
+	}
+.stack   :
+	{
+
+	  *(.stack)
+	}
+.stab  0  :
+	{
+	  [ .stab ]
+	}
+.stabstr  0  :
+	{
+	  [ .stabstr ]
+	}
+}

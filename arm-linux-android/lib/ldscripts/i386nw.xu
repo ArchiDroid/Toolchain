@@ -1,0 +1,81 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("elf32-i386", "elf32-i386",
+	      "elf32-i386")
+OUTPUT_ARCH(i386)
+ /* For some reason, the Solaris linker makes bad executables
+  if gld -r is used and the intermediate file has sections starting
+  at non-zero addresses.  Could be a Solaris ld bug, could be a GNU ld
+  bug.  But for now assigning the zero vmas works.  */
+SECTIONS
+{
+  /* Read-only sections, merged into text segment: */
+  .interp   0 : { *(.interp) 	}
+  .hash        0 : { *(.hash)		}
+  .dynsym      0 : { *(.dynsym)		}
+  .dynstr      0 : { *(.dynstr)		}
+  .rel.text    0 : { *(.rel.text)		}
+  .rela.text   0 : { *(.rela.text) 	}
+  .rel.data    0 : { *(.rel.data)		}
+  .rela.data   0 : { *(.rela.data) 	}
+  .rel.rodata  0 : { *(.rel.rodata) 	}
+  .rela.rodata 0 : { *(.rela.rodata) 	}
+  .rel.got     0 : { *(.rel.got)		}
+  .rela.got    0 : { *(.rela.got)		}
+  .rel.ctors   0 : { *(.rel.ctors)	}
+  .rela.ctors  0 : { *(.rela.ctors)	}
+  .rel.dtors   0 : { *(.rel.dtors)	}
+  .rela.dtors  0 : { *(.rela.dtors)	}
+  .rel.bss     0 : { *(.rel.bss)		}
+  .rela.bss    0 : { *(.rela.bss)		}
+  .rel.plt     0 : { *(.rel.plt)		}
+  .rela.plt    0 : { *(.rela.plt)		}
+  .init        0 : { *(.init)	} =0x90909090
+  .plt    0 : { *(.plt)	}
+  .text    0 :
+  {
+    *(.text)
+    	__CTOR_LIST__ = .;
+    	LONG((__CTOR_END__ - __CTOR_LIST__) / 4 - 2)
+    	*(.ctors)
+    	LONG(0)
+    	__CTOR_END__ = .;
+    	__DTOR_LIST__ = .;
+    	LONG((__DTOR_END__ - __DTOR_LIST__) / 4 - 2)
+    	*(.dtors)
+    	LONG(0)
+    	__DTOR_END__ = .;
+  }
+  .fini    0 : { *(.fini)    } =0x90909090
+  .ctors   0 : { *(.ctors)   }
+  .dtors   0 : { *(.dtors)   }
+  .rodata  0 : { *(.rodata)  }
+  .rodata1 0 : { *(.rodata1) }
+  /* Read-write section, merged into data segment: */
+  .data  0 :
+  {
+    *(.data)
+    CONSTRUCTORS
+  }
+  .data1 0 : { *(.data1) }
+  .got         0 : { *(.got.plt) *(.got) }
+  .dynamic     0 : { *(.dynamic) }
+  /* We want the small data sections together, so single-instruction offsets
+     can access them all, and initialized data all before uninitialized, so
+     we can shorten the on-disk segment size.  */
+  .sdata   0 : { *(.sdata) }
+  .sbss    0 : { *(.sbss) *(.scommon) }
+  .bss     0 :
+  {
+   *(.dynbss)
+   *(.bss)
+   *(COMMON)
+  }
+  /* These are needed for ELF backends which have not yet been
+     converted to the new style linker.  */
+  .stab 0 : { *(.stab) }
+  .stabstr 0 : { *(.stabstr) }
+}

@@ -1,0 +1,218 @@
+/* Script for ld -r: link without relocation */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+/* Linker script for 68HC11 object file (ld -r).  */
+OUTPUT_FORMAT("elf32-m68hc11", "elf32-m68hc11",
+	      "elf32-m68hc11")
+OUTPUT_ARCH(m68hc11)
+SECTIONS
+{
+  .hash        0 : { *(.hash)		}
+  .dynsym      0 : { *(.dynsym)		}
+  .dynstr      0 : { *(.dynstr)		}
+  .gnu.version		0 : { *(.gnu.version) }
+  .gnu.version_d	0 : { *(.gnu.version_d) }
+  .gnu.version_r	0 : { *(.gnu.version_r) }
+  .rel.text    0 :
+    {
+      *(.rel.text)
+    }
+  .rela.text   0 :
+    {
+      *(.rela.text)
+    }
+  .rel.data    0 :
+    {
+      *(.rel.data)
+    }
+  .rela.data   0 :
+    {
+      *(.rela.data)
+    }
+  .rel.rodata  0 :
+    {
+      *(.rel.rodata)
+    }
+  .rela.rodata 0 :
+    {
+      *(.rela.rodata)
+    }
+  .rel.sdata   0 :
+    {
+      *(.rel.sdata)
+    }
+  .rela.sdata   0 :
+    {
+      *(.rela.sdata)
+    }
+  .rel.sbss    0 :
+    {
+      *(.rel.sbss)
+    }
+  .rela.sbss   0 :
+    {
+      *(.rela.sbss)
+    }
+  .rel.bss     0 :
+    {
+      *(.rel.bss)
+    }
+  .rela.bss    0 :
+    {
+      *(.rela.bss)
+    }
+  .rel.stext		0 : { *(.rel.stest) }
+  .rela.stext		0 : { *(.rela.stest) }
+  .rel.etext		0 : { *(.rel.etest) }
+  .rela.etext		0 : { *(.rela.etest) }
+  .rel.sdata		0 : { *(.rel.sdata) }
+  .rela.sdata		0 : { *(.rela.sdata) }
+  .rel.edata		0 : { *(.rel.edata) }
+  .rela.edata		0 : { *(.rela.edata) }
+  .rel.eit_v		0 : { *(.rel.eit_v) }
+  .rela.eit_v		0 : { *(.rela.eit_v) }
+  .rel.ebss		0 : { *(.rel.ebss) }
+  .rela.ebss		0 : { *(.rela.ebss) }
+  .rel.srodata		0 : { *(.rel.srodata) }
+  .rela.srodata		0 : { *(.rela.srodata) }
+  .rel.erodata		0 : { *(.rel.erodata) }
+  .rela.erodata		0 : { *(.rela.erodata) }
+  .rel.got		0 : { *(.rel.got) }
+  .rela.got		0 : { *(.rela.got) }
+  .rel.ctors		0 : { *(.rel.ctors) }
+  .rela.ctors		0 : { *(.rela.ctors) }
+  .rel.dtors		0 : { *(.rel.dtors) }
+  .rela.dtors		0 : { *(.rela.dtors) }
+  .rel.init		0 : { *(.rel.init) }
+  .rela.init		0 : { *(.rela.init) }
+  .rel.fini		0 : { *(.rel.fini) }
+  .rela.fini		0 : { *(.rela.fini) }
+  .rel.plt		0 : { *(.rel.plt) }
+  .rela.plt		0 : { *(.rela.plt) }
+  /* Concatenate .page0 sections.  Put them in the page0 memory bank
+     unless we are creating a relocatable file.  */
+  .page0 :
+  {
+    *(.page0)
+  }
+  /* Start of text section.  */
+  .stext 0 :
+  {
+    *(.stext)
+  }
+  .init	0 :
+  {
+    *(.init)
+  }
+  .install0 0 : { *(.install0) }
+  .install1 0 : { *(.install1) }
+  .install2 0 : { *(.install2) }
+  .install3 0 : { *(.install3) }
+  .install4 0 : { *(.install4) }
+  .fini0 0 : { *(.fini0) }
+  .fini1 0 : { *(.fini1) }
+  .fini2 0 : { *(.fini2) }
+  .fini3 0 : { *(.fini3) }
+  .fini4 0 : { *(.fini4) }
+  .text 0:
+  {
+    /* Put startup code at beginning so that _start keeps same address.  */
+    *(.text)
+    /* .gnu.warning sections are handled specially by elf32.em.  */
+    *(.gnu.warning)
+  }
+  .eh_frame 0 :
+  {
+    KEEP (*(.eh_frame))
+  }
+  .gcc_except_table 0 :
+  {
+    *(.gcc_except_table)
+  }
+  .rodata  0 :
+  {
+    *(.rodata)
+  }
+  .rodata1 0 :
+  {
+    *(.rodata1)
+  }
+  /* Constructor and destructor tables are in ROM.  */
+  .jcr 0 :
+  {
+    KEEP (*(.jcr))
+  }
+  /* Start of the data section image in ROM.  */
+  /* All read-only sections that normally go in PROM must be above.
+     We construct the DATA image section in PROM at end of all these
+     read-only sections.  The data image must be copied at init time.
+     Refer to GNU ld, Section 3.6.8.2 Output Section LMA.  */
+  .data  0 :
+  {
+    *(.data)
+  }
+  /* .install 0:
+  {
+    . = _data_image_end;
+  }  */
+  /* Relocation for some bss and data sections.  */
+  .data1 0 : { *(.data1) }
+  /* We want the small data sections together, so single-instruction offsets
+     can access them all, and initialized data all before uninitialized, so
+     we can shorten the on-disk segment size.  */
+  .sdata   0 : { *(.sdata) }
+  .sbss    0 : { *(.sbss) }
+  .scommon 0 : { *(.scommon) }
+  .softregs 0 : { *(.softregs) }
+  .bss 0 :
+  {
+    *(.dynbss)
+    *(.bss)
+    *(COMMON)
+  }
+  .eeprom 0 :
+  {
+    *(.eeprom)
+    *(.eeprom.*)
+  }
+  /* Stabs debugging sections.  */
+  .stab		 0 : { *(.stab) }
+  .stabstr	 0 : { *(.stabstr) }
+  .stab.excl	 0 : { *(.stab.excl) }
+  .stab.exclstr	 0 : { *(.stab.exclstr) }
+  .stab.index	 0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment	 0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+}

@@ -1,0 +1,141 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("elf32-shl-symbian", "elf32-shl-symbian",
+	      "elf32-shl-symbian")
+OUTPUT_ARCH(sh)
+ /* For some reason, the Solaris linker makes bad executables
+  if gld -r is used and the intermediate file has sections starting
+  at non-zero addresses.  Could be a Solaris ld bug, could be a GNU ld
+  bug.  But for now assigning the zero vmas works.  */
+PHDRS
+{
+  headers PT_PHDR PHDRS ;
+  text    PT_LOAD ;
+  data    PT_LOAD ;
+  dyn     PT_LOAD FLAGS (0) ;
+  dynamic PT_DYNAMIC ;
+}
+SECTIONS
+{
+  /* Read-only sections, merged into text segment: */
+  .interp    ALIGN(4) : { *(.interp) }
+  .init ALIGN(4) :
+  {
+    KEEP (*(.init))
+  } :text =0
+  .text ALIGN(4) :
+  {
+    *(.text .stub)
+    /* .gnu.warning sections are handled specially by elf32.em.  */
+    *(.gnu.warning)
+  } =0
+  .fini ALIGN(4) :
+  {
+    KEEP (*(.fini))
+  } =0
+  .rodata    ALIGN(4) : { *(.rodata) }
+  .rodata1 ALIGN(4) : { *(.rodata1) }
+  ExportTable  ALIGN(4) : { KEEP (*(ExportTable)) }
+  .eh_frame_hdr ALIGN(4) : { *(.eh_frame_hdr) } :text
+  /* Adjust the address for the data segment.  We want to adjust up to
+     the same address within the page on the next page up.  */
+  . = ALIGN(128) + (. & (128 - 1));
+  .preinit_array   0 :
+  {
+    KEEP (*(.preinit_array))
+  }
+  .data  ALIGN(4) :
+  {
+    *(.data)
+    SORT(CONSTRUCTORS)
+  } :data
+  .data1            ALIGN(4) : { *(.data1) } :data
+  .tdata	    ALIGN(4) : { *(.tdata) } :data
+  .tbss		    ALIGN(4) : { *(.tbss) } :data
+  .eh_frame         ALIGN(4) : { KEEP (*(.eh_frame)) } :data
+  .gcc_except_table ALIGN(4) : { *(.gcc_except_table) } :data
+  .bss  ALIGN(4) :
+  {
+   *(.dynbss)
+   *(.bss)
+   *(COMMON)
+   /* Align here to ensure that the .bss section occupies space up to
+      _end.  Align after .bss to ensure correct alignment even if the
+      .bss section disappears because there are no input sections.  */
+  } :data
+  .dynamic        : { *(.dynamic) } :dynamic :dyn
+  .hash         0 : { *(.hash) } :dynamic :dyn
+  .dynsym       0 : { *(.dynsym) } :dynamic :dyn
+  .dynstr       0 : { *(.dynstr) } :dynamic :dyn
+  .plt            : { *(.plt) } :dynamic :dyn
+  .got.plt	  : { *(.got.plt) } :dynamic :dyn
+  .gnu.version  0 : { *(.gnu.version) }
+  .gnu.version_d 0: { *(.gnu.version_d) }
+  .gnu.version_r 0: { *(.gnu.version_r) }
+  .rel.init     0 : { *(.rel.init) }
+  .rela.init    0 : { *(.rela.init) }
+  .rel.text     0 : { *(.rel.text) }
+  .rela.text    0 : { *(.rela.text) }
+  .rel.fini     0 : { *(.rel.fini) }
+  .rela.fini    0 : { *(.rela.fini) }
+  .rel.rodata   0 : { *(.rel.rodata) }
+  .rela.rodata  0 : { *(.rela.rodata) }
+  .rel.data     0 : { *(.rel.data) }
+  .rela.data    0 : { *(.rela.data) }
+  .rel.tdata	0 : { *(.rel.tdata) }
+  .rela.tdata	0 : { *(.rela.tdata) }
+  .rel.tbss	0 : { *(.rel.tbss) }
+  .rela.tbss	0 : { *(.rela.tbss) }
+  .rel.ctors    0 : { *(.rel.ctors) }
+  .rela.ctors   0 : { *(.rela.ctors) }
+  .rel.dtors    0 : { *(.rel.dtors) }
+  .rela.dtors   0 : { *(.rela.dtors) }
+  .rel.got      0 : { *(.rel.got) }
+  .rela.got     0 : { *(.rela.got) }
+  .rel.bss      0 : { *(.rel.bss) }
+  .rela.bss     0 : { *(.rela.bss) }
+  .rel.plt      0 : { *(.rel.plt) }
+  .rela.plt     0 : { *(.rela.plt) }
+  /* Stabs debugging sections.  */
+  .stab          0 : { *(.stab) }
+  .stabstr       0 : { *(.stabstr) }
+  .stab.excl     0 : { *(.stab.excl) }
+  .stab.exclstr  0 : { *(.stab.exclstr) }
+  .stab.index    0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment       0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+  .gnu.attributes 0 : { KEEP (*(.gnu.attributes)) }
+}

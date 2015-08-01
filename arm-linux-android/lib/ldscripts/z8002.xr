@@ -1,0 +1,48 @@
+/* Script for ld -r: link without relocation */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-z8k")
+OUTPUT_ARCH("z8002")
+SECTIONS
+{
+.text  :
+	{
+	  *(.text)
+	  *(.strings)
+	  *(.rdata)
+	}
+.ctors   :
+	{
+
+	  *(.ctors);
+
+	  ___dtors = . ;
+	  *(.dtors);
+
+	}
+.data  :
+	{
+	   *(.data)
+	}
+.bss  :
+	{
+
+	  *(.bss);
+	  *(COMMON);
+
+	}
+.heap  :
+	{
+
+
+
+	}
+.stack   :
+	{
+
+	  *(.stack)
+
+	}
+}

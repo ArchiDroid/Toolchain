@@ -1,0 +1,23 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+OUTPUT_FORMAT("coff-z80")
+OUTPUT_ARCH("z80")
+SECTIONS
+{
+.text :	{
+	*(.text)
+	*(text)
+
+	}
+.data :	{
+
+	*(.data)
+	*(data)
+
+	}
+.bss :	{
+
+	*(.bss)
+	*(bss)
+
+	}
+}

@@ -1,0 +1,97 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("elf32-xstormy16", "elf32-xstormy16",
+	      "elf32-xstormy16")
+OUTPUT_ARCH(xstormy16)
+ /* For some reason, the Solaris linker makes bad executables
+  if gld -r is used and the intermediate file has sections starting
+  at non-zero addresses.  Could be a Solaris ld bug, could be a GNU ld
+  bug.  But for now assigning the zero vmas works.  */
+/* There are two memory regions we care about, one from 0 through 0x7F00
+   that is RAM and one from 0x8000 up which is ROM.  */
+MEMORY
+{
+  RAM (w) : ORIGIN = 0, LENGTH = 0x7F00
+  ROM (!w) : ORIGIN = 0x8000, LENGTH = 0xFF8000
+}
+SECTIONS
+{
+  .data  0 :
+  {
+    *(.data)
+    SORT(CONSTRUCTORS)
+  } > RAM
+  .bss     0 :
+  {
+   *(.dynbss)
+   *(.bss)
+   *(COMMON)
+   /* Align here to ensure that the .bss section occupies space up to
+      _end.  Align after .bss to ensure correct alignment even if the
+      .bss section disappears because there are no input sections.  */
+  } > RAM
+  /* Read-only sections in ROM.  */
+  .int_vec     0 : { *(.int_vec)	}
+  .rodata 0 : { *(.rodata)   }
+  .jcr : { KEEP (*(.jcr)) }
+  .eh_frame : { KEEP (*(.eh_frame)) }
+  .gcc_except_table : { *(.gcc_except_table) *(.gcc_except_table.*) }
+  .plt : { *(.plt) }
+  .text    0 :
+  {
+    *(.text)
+    *(.stub)
+    /* .gnu.warning sections are handled specially by elf32.em.  */
+    *(.gnu.warning)
+  }
+  .init        0 :
+  {
+    KEEP (*(.init))
+  }
+  .fini    0 :
+  {
+    KEEP (*(.fini))
+  }
+  /* Stabs debugging sections.  */
+  .stab 0 : { *(.stab) }
+  .stabstr 0 : { *(.stabstr) }
+  .stab.excl 0 : { *(.stab.excl) }
+  .stab.exclstr 0 : { *(.stab.exclstr) }
+  .stab.index 0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment 0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+  /* These must appear regardless of .  */
+}

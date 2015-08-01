@@ -1,0 +1,58 @@
+/* Script for ld -r: link without relocation */
+/* Linker script for TMS320C4x object file (ld -r).  */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff2-tic4x")
+OUTPUT_ARCH("tic4x")
+/* In the small memory model the .data and .bss sections must be contiguous
+   when loaded and fit within the same page.   The DP register is loaded
+   with the page address.  */
+SECTIONS
+{
+  /* Reset, interrupt, and trap vectors.  */
+  .vectors  : {
+    *(.vectors)
+  }
+  /* Constants.  */
+  .const : {
+    *(.const)
+  }
+  /* Program code.  */
+  .text : {
+    *(.text)
+  }
+  /* Global initialised variables.  */
+  .data :
+  {
+    *(.data)
+  }
+  /* Global uninitialised variables.  */
+  .bss : {
+
+    *(.bss)
+    *(COMMON)
+  }
+  /* Heap.  */
+  .heap :
+  {
+
+    ;
+  }
+  /* Stack (grows upward).  */
+  .stack :
+  {
+
+    *(.stack)
+    ;
+  }
+  .stab 0  :
+  {
+    [ .stab ]
+  }
+  .stabstr 0  :
+  {
+    [ .stabstr ]
+  }
+}

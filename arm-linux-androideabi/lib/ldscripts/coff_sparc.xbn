@@ -1,0 +1,45 @@
+/* Script for -N: mix text and data on same page; don't align data */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-sparc")
+ENTRY (_start)
+SECTIONS
+{
+  .text  SIZEOF_HEADERS : {
+    *(.init)
+    *(.text)
+     etext  =  .;
+     ___CTOR_LIST__ = .;
+     LONG((___CTOR_END__ - ___CTOR_LIST__) / 4 - 2)
+     *(.ctors)
+     LONG(0)
+     ___CTOR_END__ = .;
+     ___DTOR_LIST__ = .;
+     LONG((___DTOR_END__ - ___DTOR_LIST__) / 4 - 2)
+     *(.dtors)
+     LONG(0)
+     ___DTOR_END__ = .;
+    *(.fini)
+     etext  =  .;
+  }
+  .data  0x400000 + (. & 0xffc00fff) : {
+    *(.data)
+     edata  =  .;
+  }
+  .bss  SIZEOF(.data) + ADDR(.data) :
+  {
+    *(.bss)
+    *(COMMON)
+     end = .;
+  }
+  .stab  0 (NOLOAD) :
+  {
+    [ .stab ]
+  }
+  .stabstr  0 (NOLOAD) :
+  {
+    [ .stabstr ]
+  }
+}

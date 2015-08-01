@@ -1,0 +1,49 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_ARCH(rs6000)
+SECTIONS
+{
+  .pad 0 : { *(.pad) }
+  . = ALIGN (0x10000000 + SIZEOF_HEADERS, 32);
+  .text 0 : {
+    *(.text)
+    *(.pr)
+    *(.ro)
+    *(.db)
+    *(.gl)
+    *(.xo)
+    *(.ti)
+    *(.tb)
+  }
+  . = ALIGN (ALIGN (0x10000000) + (. & 0xfff), 32);
+  .data . : {
+    *(.data)
+    *(.rw)
+    *(.sv)
+    *(.sv64)
+    *(.sv3264)
+    *(.ua)
+    . = ALIGN(4);
+    CONSTRUCTORS
+    *(.ds)
+    *(.tc0)
+    *(.tc)
+    *(.td)
+  }
+  .bss : {
+    *(.tocbss)
+    *(.bss)
+    *(.bs)
+    *(.uc)
+    *(COMMON)
+  }
+  .loader : {
+    *(.loader)
+  }
+  .debug : {
+    *(.debug)
+  }
+}

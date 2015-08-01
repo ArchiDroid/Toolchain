@@ -1,0 +1,49 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-arm-little", "coff-arm-big", "coff-arm-little")
+SECTIONS
+{
+  /* We start at 0x8000 because gdb assumes it (see FRAME_CHAIN).
+     This is an artifact of the ARM Demon monitor using the bottom 32k
+     as workspace (shared with the FP instruction emulator if
+     present): */
+  .text  : {
+    *(.init)
+    *(.text*)
+    *(.glue_7t)
+    *(.glue_7)
+    *(.rdata)
+     ___CTOR_LIST__ = .; __CTOR_LIST__ = . ;
+			LONG (-1); *(.ctors); *(.ctor); LONG (0);
+     ___DTOR_LIST__ = .; __DTOR_LIST__ = . ;
+			LONG (-1); *(.dtors); *(.dtor);  LONG (0);
+    *(.fini)
+  }
+  .data  : {
+    *(.data*)
+  }
+  .ctor : {
+    *(SORT(.ctors.*))
+    *(.ctor)
+  }
+  .dtor : {
+    *(SORT(.dtors.*))
+    *(.dtor)
+  }
+  .bss  :
+  {
+    *(.bss)
+    *(COMMON)
+  }
+  .stab  0  :
+  {
+    [ .stab ]
+  }
+  .stabstr  0  :
+  {
+    [ .stabstr ]
+  }
+}

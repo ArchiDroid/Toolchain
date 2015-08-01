@@ -1,0 +1,42 @@
+/* Script for ld -r: link without relocation */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-m88kbcs")
+OUTPUT_ARCH(m88k)
+SECTIONS
+{
+  .text  :
+    {
+      ;
+      ;
+      ;
+      *(.text)
+      ;
+      	;
+      ;
+      ;
+      ;
+      ;
+      ;
+    }
+  .data  :
+    {
+      *(.data)
+      ;
+    }
+  .bss  :
+    {
+      *(.bss)
+      *(COMMON)
+      ;
+      ;
+    }
+   .init : { *(.init) }
+   .fini : { *(.fini) }
+  .comment  0  :
+  {
+    *(.comment)
+  }
+}

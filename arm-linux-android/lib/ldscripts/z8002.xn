@@ -1,0 +1,49 @@
+/* Script for -n: mix text and data on same page */
+/* Copyright (C) 2014-2015 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("coff-z8k")
+OUTPUT_ARCH("z8002")
+ENTRY (_start)
+SECTIONS
+{
+.text  :
+	{
+	  *(.text)
+	  *(.strings)
+	  *(.rdata)
+	}
+.ctors   :
+	{
+	   ___ctors = . ;
+	  *(.ctors);
+	   ___ctors_end = . ;
+	  ___dtors = . ;
+	  *(.dtors);
+	   ___dtors_end = . ;
+	}
+.data  :
+	{
+	   *(.data)
+	}
+.bss  :
+	{
+	   __start_bss = . ;
+	  *(.bss);
+	  *(COMMON);
+	   __end_bss = . ;
+	}
+.heap  :
+	{
+	   __start_heap = . ;
+	   . = . + 20k  ;
+	   __end_heap = . ;
+	}
+.stack  0xf000   :
+	{
+	   _stack = . ;
+	  *(.stack)
+	   __stack_top = . ;
+	}
+}

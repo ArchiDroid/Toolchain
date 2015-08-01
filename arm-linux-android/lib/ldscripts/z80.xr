@@ -1,0 +1,23 @@
+/* Script for ld -r: link without relocation */
+OUTPUT_FORMAT("coff-z80")
+OUTPUT_ARCH("z80")
+SECTIONS
+{
+.text :	{
+	*(.text)
+	*(text)
+
+	}
+.data :	{
+
+	*(.data)
+	*(data)
+
+	}
+.bss :	{
+
+	*(.bss)
+	*(bss)
+
+	}
+}
