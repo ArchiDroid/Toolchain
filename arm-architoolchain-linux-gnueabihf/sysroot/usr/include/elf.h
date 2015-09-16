@@ -367,12 +367,37 @@ typedef struct
 					   required */
 #define SHF_GROUP	     (1 << 9)	/* Section is member of a group.  */
 #define SHF_TLS		     (1 << 10)	/* Section hold thread-local data.  */
+#define SHF_COMPRESSED	     (1 << 11)	/* Section with compressed data. */
 #define SHF_MASKOS	     0x0ff00000	/* OS-specific.  */
 #define SHF_MASKPROC	     0xf0000000	/* Processor-specific */
 #define SHF_ORDERED	     (1 << 30)	/* Special ordering requirement
 					   (Solaris).  */
-#define SHF_EXCLUDE	     (1 << 31)	/* Section is excluded unless
+#define SHF_EXCLUDE	     (1U << 31)	/* Section is excluded unless
 					   referenced or allocated (Solaris).*/
+
+/* Section compression header.  Used when SHF_COMPRESSED is set.  */
+
+typedef struct
+{
+  Elf32_Word	ch_type;	/* Compression format.  */
+  Elf32_Word	ch_size;	/* Uncompressed data size.  */
+  Elf32_Word	ch_addralign;	/* Uncompressed data alignment.  */
+} Elf32_Chdr;
+
+typedef struct
+{
+  Elf64_Word	ch_type;	/* Compression format.  */
+  Elf64_Word	ch_reserved;
+  Elf64_Xword	ch_size;	/* Uncompressed data size.  */
+  Elf64_Xword	ch_addralign;	/* Uncompressed data alignment.  */
+} Elf64_Chdr;
+
+/* Legal values for ch_type (compression algorithm).  */
+#define ELFCOMPRESS_ZLIB	1	   /* ZLIB/DEFLATE algorithm.  */
+#define ELFCOMPRESS_LOOS	0x60000000 /* Start of OS-specific.  */
+#define ELFCOMPRESS_HIOS	0x6fffffff /* End of OS-specific.  */
+#define ELFCOMPRESS_LOPROC	0x70000000 /* Start of processor-specific.  */
+#define ELFCOMPRESS_HIPROC	0x7fffffff /* End of processor-specific.  */
 
 /* Section group handling.  */
 #define GRP_COMDAT	0x1		/* Mark group as COMDAT.  */
@@ -1702,7 +1727,11 @@ typedef struct
    PLT is writable.  For a non-writable PLT, this is omitted or has a zero
    value.  */
 #define DT_MIPS_RWPLT        0x70000034
-#define DT_MIPS_NUM	     0x35
+/* An alternative description of the classic MIPS RLD_MAP that is usable
+   in a PIE as it stores a relative offset from the address of the tag
+   rather than an absolute address.  */
+#define DT_MIPS_RLD_MAP_REL  0x70000035
+#define DT_MIPS_NUM	     0x36
 
 /* Legal values for DT_MIPS_FLAGS Elf32_Dyn entry.  */
 
@@ -2194,6 +2223,8 @@ enum
 #define R_PPC_GOT_DTPREL16_LO	92 /* half16*	(sym+add)@got@dtprel@l */
 #define R_PPC_GOT_DTPREL16_HI	93 /* half16*	(sym+add)@got@dtprel@h */
 #define R_PPC_GOT_DTPREL16_HA	94 /* half16*	(sym+add)@got@dtprel@ha */
+#define R_PPC_TLSGD		95 /* none	(sym+add)@tlsgd */
+#define R_PPC_TLSLD		96 /* none	(sym+add)@tlsld */
 
 /* The remaining relocs are from the Embedded ELF ABI, and are not
    in the SVR4 ELF ABI.  */
@@ -2237,7 +2268,11 @@ enum
 
 /* PowerPC specific values for the Dyn d_tag field.  */
 #define DT_PPC_GOT		(DT_LOPROC + 0)
-#define DT_PPC_NUM		1
+#define DT_PPC_OPT		(DT_LOPROC + 1)
+#define DT_PPC_NUM		2
+
+/* PowerPC specific values for the DT_PPC_OPT Dyn entry.  */
+#define PPC_OPT_TLS		1
 
 /* PowerPC64 relocations defined by the ABIs */
 #define R_PPC64_NONE		R_PPC_NONE

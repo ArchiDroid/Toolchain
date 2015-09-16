@@ -5,10 +5,10 @@
 # It is necessary for linking the library.
 
 # The name that we can dlopen(3).
-dlname='libbfd-2.25.so'
+dlname='libbfd-2.25.1.so'
 
 # Names of this library.
-library_names='libbfd-2.25.so libbfd-2.25.so libbfd.so'
+library_names='libbfd-2.25.1.so libbfd-2.25.1.so libbfd.so'
 
 # The name of the static archive.
 old_library='libbfd.a'

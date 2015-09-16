@@ -60,9 +60,9 @@ __MATHCALL (atan,, (_Mdouble_ __x));
 __MATHCALL (atan2,, (_Mdouble_ __y, _Mdouble_ __x));
 
 /* Cosine of X.  */
-__MATHCALL (cos,, (_Mdouble_ __x));
+__MATHCALL_VEC (cos,, (_Mdouble_ __x));
 /* Sine of X.  */
-__MATHCALL (sin,, (_Mdouble_ __x));
+__MATHCALL_VEC (sin,, (_Mdouble_ __x));
 /* Tangent of X.  */
 __MATHCALL (tan,, (_Mdouble_ __x));
 
@@ -78,8 +78,8 @@ _Mdouble_END_NAMESPACE
 
 #ifdef __USE_GNU
 /* Cosine and sine of X.  */
-__MATHDECL (void,sincos,,
-	    (_Mdouble_ __x, _Mdouble_ *__sinx, _Mdouble_ *__cosx));
+__MATHDECL_VEC (void,sincos,,
+		(_Mdouble_ __x, _Mdouble_ *__sinx, _Mdouble_ *__cosx));
 #endif
 
 #if defined __USE_XOPEN_EXTENDED || defined __USE_ISOC99
@@ -97,7 +97,7 @@ __END_NAMESPACE_C99
 
 _Mdouble_BEGIN_NAMESPACE
 /* Exponential function of X.  */
-__MATHCALL (exp,, (_Mdouble_ __x));
+__MATHCALL_VEC (exp,, (_Mdouble_ __x));
 
 /* Break VALUE into a normalized fraction and an integral power of 2.  */
 __MATHCALL (frexp,, (_Mdouble_ __x, int *__exponent));
@@ -106,7 +106,7 @@ __MATHCALL (frexp,, (_Mdouble_ __x, int *__exponent));
 __MATHCALL (ldexp,, (_Mdouble_ __x, int __exponent));
 
 /* Natural logarithm of X.  */
-__MATHCALL (log,, (_Mdouble_ __x));
+__MATHCALL_VEC (log,, (_Mdouble_ __x));
 
 /* Base-ten logarithm of X.  */
 __MATHCALL (log10,, (_Mdouble_ __x));
@@ -150,7 +150,7 @@ __END_NAMESPACE_C99
 
 _Mdouble_BEGIN_NAMESPACE
 /* Return X to the Y power.  */
-__MATHCALL (pow,, (_Mdouble_ __x, _Mdouble_ __y));
+__MATHCALL_VEC (pow,, (_Mdouble_ __x, _Mdouble_ __y));
 
 /* Return the square root of X.  */
 __MATHCALL (sqrt,, (_Mdouble_ __x));

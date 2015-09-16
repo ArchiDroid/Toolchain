@@ -11,6 +11,7 @@
 #define LIBC_SO                         "libc.so.6"
 #define LIBDL_SO                        "libdl.so.2"
 #define LIBGCC_S_SO                     "libgcc_s.so.1"
+#define LIBMVEC_SO                      "libmvec.so.1"
 #define LIBM_SO                         "libm.so.6"
 #define LIBNSL_SO                       "libnsl.so.1"
 #define LIBNSS_COMPAT_SO                "libnss_compat.so.2"

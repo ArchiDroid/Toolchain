@@ -2,11 +2,10 @@ ArchiToolchain
 ===================================================
 This toolchain is optimized for:
 - Hard-float ABI (-mfloat-abi=hard)
-- Linux Kernel 4.1.X (with legacy support down to 2.6.X)
+- Linux Kernel 4.2.X (with legacy support down to 2.6.X)
 
 This toolchain uses:
 - GNU GCC 5.2.X (latest)
-- Other components specified in ".config" file
 
 ---------------------------------------------------
 ArchiToolchain is a minimalistic toolchain which should be used as "arm-eabi" alternative during compiling Linux kernels. It uses, and is possible, thanks to [crosstool-NG](https://github.com/crosstool-ng/crosstool-ng)
